@@ -1,0 +1,64 @@
+/* Card - media + title + body + actions. */
+.u-card {
+  display: flex; flex-direction: column; overflow: hidden;
+  background: var(--u-background-primary);
+  border-radius: var(--u-radius-md);
+  box-shadow: var(--u-shadow-shallow-below);
+}
+.u-card__media { aspect-ratio: 16/9; background: var(--u-background-tertiary);
+                 display: grid; place-items: center; }
+.u-card__media img { width: 100%; height: 100%; object-fit: cover; }
+.u-card__body { padding: var(--u-space-16); display: grid; gap: var(--u-space-8); }
+.u-card__title {
+  font-family: var(--u-type-heading-x-small-family);
+  font-size: var(--u-type-heading-x-small-size);
+  font-weight: var(--u-type-heading-x-small-weight);
+  color: var(--u-content-primary);
+}
+.u-card__text {
+  font-family: var(--u-type-paragraph-small-family);
+  font-size: var(--u-type-paragraph-small-size);
+  line-height: var(--u-type-paragraph-small-leading);
+  color: var(--u-content-secondary);
+}
+.u-card__actions { display: flex; gap: var(--u-space-8);
+                   padding: 0 var(--u-space-16) var(--u-space-16); }
+
+/* Loading variant - the Figma file ships an Enabled and a Loading state for
+   every Card / Feed and Card / Isolated permutation. */
+.u-card--loading .u-card__media { background: none; }
+.u-card--loading .u-card__title,
+.u-card--loading .u-card__text { color: transparent; }
+.u-card--loading .u-card__title { width: 60%; height: 16px; }
+.u-card--loading .u-card__text  { width: 90%; height: 12px; }
+.u-card--loading .u-card__media,
+.u-card--loading .u-card__title,
+.u-card--loading .u-card__text {
+  border-radius: var(--u-radius-xs);
+  background: linear-gradient(90deg,
+    var(--u-background-secondary) 25%,
+    var(--u-background-tertiary)  37%,
+    var(--u-background-secondary) 63%);
+  background-size: 400% 100%;
+  animation: u-shimmer 1.4s ease-in-out infinite;
+}
+
+/* Card / Feed vs Card / Isolated, and the four artwork positions. */
+.u-card--feed     { border-radius: 0; box-shadow: none;
+                    box-shadow: inset 0 -1px 0 var(--u-border-opaque); }
+.u-card--isolated { box-shadow: var(--u-shadow-shallow-below); }
+.u-card--media-bottom { flex-direction: column-reverse; }
+.u-card--media-middle .u-card__media { order: 1; margin-block: var(--u-space-12); }
+.u-card--artwork-trailing { flex-direction: row; align-items: center; }
+.u-card--artwork-trailing .u-card__media {
+  order: 2; flex: none; width: 88px; aspect-ratio: 1;
+}
+.u-card--artwork-background { position: relative; }
+.u-card--artwork-background .u-card__media { position: absolute; inset: 0; aspect-ratio: auto; }
+.u-card--artwork-background .u-card__body {
+  position: relative; color: var(--u-content-inverse-primary);
+  background: linear-gradient(to top, var(--u-overlay-black78), transparent);
+  padding-top: var(--u-space-48);
+}
+.u-card--artwork-background .u-card__title { color: var(--u-content-inverse-primary); }
+.u-card--artwork-background .u-card__text  { color: var(--u-content-inverse-secondary); }

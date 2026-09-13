@@ -1,0 +1,30 @@
+/* Button - Base primary / secondary / tertiary, rect + pill shapes.
+   Figma: ❖ Base Components -> Buttons */
+.u-btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  gap: var(--u-space-8);
+  min-height: 48px; padding: 0 var(--u-space-20);
+  border: none; border-radius: var(--u-radius-sm);
+  font-family: var(--u-type-label-medium-family);
+  font-size: var(--u-type-label-medium-size);
+  font-weight: var(--u-type-label-medium-weight);
+  line-height: var(--u-type-label-medium-leading);
+  background: var(--u-background-accent); color: var(--u-content-on-color);
+  transition: opacity var(--u-duration-fast) var(--u-ease-standard),
+              transform var(--u-duration-fast) var(--u-ease-standard);
+}
+.u-btn:active { transform: scale(0.97); }
+.u-btn[disabled] {
+  background: var(--u-background-state-disabled);
+  color: var(--u-content-state-disabled);
+  pointer-events: none;
+}
+
+.u-btn--primary   { background: var(--u-background-always-dark); color: var(--u-content-on-color); }
+.u-btn--secondary { background: var(--u-background-secondary);   color: var(--u-content-primary); }
+.u-btn--tertiary  { background: transparent; color: var(--u-content-primary);
+                    box-shadow: inset 0 0 0 1px var(--u-border-opaque); }
+.u-btn--pill  { border-radius: var(--u-radius-pill); }
+.u-btn--block { display: flex; width: 100%; }
+.u-btn--sm    { min-height: 36px; padding: 0 var(--u-space-12);
+                font-size: var(--u-type-label-small-size); }

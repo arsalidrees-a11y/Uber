@@ -1,0 +1,22 @@
+/* MessageCard (60 instances) - promotional / informational block with an image. */
+.u-msg {
+  display: grid; gap: var(--u-space-12); overflow: hidden;
+  padding: var(--u-space-16); border-radius: var(--u-radius-md);
+  background: var(--u-background-accent-light);
+}
+.u-msg--dark { background: var(--u-background-inverse-primary);
+               color: var(--u-content-inverse-primary); }
+.u-msg--dark .u-msg__title { color: var(--u-content-inverse-primary); }
+.u-msg--dark .u-msg__body  { color: var(--u-content-inverse-secondary); }
+.u-msg__title {
+  font-family: var(--u-type-label-large-family);
+  font-size: var(--u-type-label-large-size);
+  font-weight: var(--u-type-label-large-weight);
+  color: var(--u-content-primary);
+}
+.u-msg__body {
+  font-family: var(--u-type-paragraph-small-family);
+  font-size: var(--u-type-paragraph-small-size);
+  line-height: var(--u-type-paragraph-small-leading);
+  color: var(--u-content-secondary);
+}

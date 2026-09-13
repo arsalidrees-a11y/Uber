@@ -1,0 +1,51 @@
+/* Slider + Knob (Slider - Beta, Knob Enabled/Active/Active+value/Disabled).
+   Built on input[type=range] because the range input is a semantics and
+   keyboard primitive, not a platform-drawn widget: every visible part here
+   is ours. */
+.u-slider { position: relative; padding: var(--u-space-16) 0; }
+.u-slider__input {
+  -webkit-appearance: none; appearance: none;
+  width: 100%; height: 4px; margin: 0; border-radius: var(--u-radius-pill);
+  background: linear-gradient(to right,
+    var(--u-background-always-dark) var(--pct, 0%),
+    var(--u-background-tertiary)    var(--pct, 0%));
+  outline: none;
+}
+.u-slider__input::-webkit-slider-thumb {
+  -webkit-appearance: none; appearance: none;
+  width: 28px; height: 28px; border-radius: 50%; border: none;
+  background: var(--u-background-primary);
+  box-shadow: var(--u-shadow-shallow-below), inset 0 0 0 1px var(--u-border-opaque);
+  transition: transform var(--u-duration-fast) var(--u-ease-standard);
+}
+.u-slider__input::-moz-range-thumb {
+  width: 28px; height: 28px; border-radius: 50%; border: none;
+  background: var(--u-background-primary);
+  box-shadow: var(--u-shadow-shallow-below), inset 0 0 0 1px var(--u-border-opaque);
+}
+.u-slider__input:active::-webkit-slider-thumb { transform: scale(1.12); }
+.u-slider__input:focus-visible::-webkit-slider-thumb {
+  box-shadow: var(--u-shadow-shallow-below), 0 0 0 3px var(--u-border-accent);
+}
+.u-slider__input[disabled] { background: var(--u-background-state-disabled); pointer-events: none; }
+.u-slider__input[disabled]::-webkit-slider-thumb { background: var(--u-background-tertiary); box-shadow: none; }
+
+/* Knob / Active + value: the bubble above the thumb while dragging. */
+.u-slider__value {
+  position: absolute; top: -4px; left: var(--pct, 0%);
+  transform: translateX(-50%) scale(0); transform-origin: bottom center;
+  padding: var(--u-space-2) var(--u-space-8); border-radius: var(--u-radius-xs);
+  background: var(--u-background-inverse-primary);
+  color: var(--u-content-inverse-primary);
+  font-family: var(--u-type-label-x-small-family);
+  font-size: var(--u-type-label-x-small-size);
+  font-variant-numeric: tabular-nums; pointer-events: none;
+  transition: transform var(--u-duration-fast) var(--u-ease-decelerate);
+}
+.u-slider[data-active="true"] .u-slider__value { transform: translateX(-50%) scale(1); }
+.u-slider__scale {
+  display: flex; justify-content: space-between; margin-top: var(--u-space-8);
+  font-family: var(--u-type-paragraph-x-small-family);
+  font-size: var(--u-type-paragraph-x-small-size);
+  color: var(--u-content-tertiary);
+}

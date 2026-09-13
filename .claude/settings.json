@@ -1,0 +1,17 @@
+{
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Write|Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "\"$CLAUDE_PROJECT_DIR/.claude/hooks/lint-src.sh\"",
+            "timeout": 60,
+            "statusMessage": "Linting uber-learn source"
+          }
+        ]
+      }
+    ]
+  }
+}

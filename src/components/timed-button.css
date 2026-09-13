@@ -1,0 +1,11 @@
+/* TimedButton (4 instances) - a button that auto-fires when its ring
+   completes. Used for auto-advance at the end of a lesson. */
+.u-timed { position: relative; overflow: hidden; }
+.u-timed::before {
+  content: ""; position: absolute; inset: 0;
+  background: var(--u-overlay-white18); transform-origin: left;
+  transform: scaleX(0); animation: u-timed-fill var(--timed, 5s) linear forwards;
+}
+.u-timed[data-paused="true"]::before { animation-play-state: paused; }
+@keyframes u-timed-fill { to { transform: scaleX(1); } }
+@media (prefers-reduced-motion: reduce) { .u-timed::before { animation: none; } }

@@ -1,0 +1,26 @@
+/* Snackbar - transient confirmation, docked above the safe area. */
+.u-snack {
+  position: fixed; left: var(--u-space-16); right: var(--u-space-16);
+  bottom: max(var(--u-space-16), env(safe-area-inset-bottom));
+  z-index: 60;
+  display: flex; align-items: center; gap: var(--u-space-12);
+  padding: var(--u-space-12) var(--u-space-16);
+  border-radius: var(--u-radius-sm);
+  background: var(--u-background-inverse-primary);
+  color: var(--u-content-inverse-primary);
+  box-shadow: var(--u-shadow-deep-below);
+  font-family: var(--u-type-paragraph-small-family);
+  font-size: var(--u-type-paragraph-small-size);
+  animation: u-snack-in var(--u-duration-base) var(--u-ease-decelerate);
+}
+.u-snack__action {
+  margin-left: auto; border: none; background: none;
+  color: var(--u-content-inverse-primary);
+  font-family: var(--u-type-label-small-family);
+  font-size: var(--u-type-label-small-size);
+  font-weight: var(--u-type-label-small-weight);
+  text-decoration: underline; padding: var(--u-space-4);
+}
+@keyframes u-snack-in { from { opacity: 0; transform: translateY(12px); } }
+/* Gallery/demo only: pin inside the phone frame instead of the window. */
+.u-snack--inline { position: absolute; }

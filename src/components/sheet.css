@@ -1,0 +1,33 @@
+/* Sheet - bottom sheet / modal. Base's Modal on mobile is a docked sheet.
+   Figma: Docked (21149:282640), Sheet header */
+.u-scrim {
+  position: fixed; inset: 0; z-index: 50;
+  background: var(--u-overlay-black48);
+  animation: u-fade var(--u-duration-base) var(--u-ease-standard);
+}
+.u-sheet {
+  position: fixed; left: 0; right: 0; bottom: 0; z-index: 51;
+  max-height: 88%; overflow-y: auto;
+  padding: var(--u-space-8) var(--u-space-16)
+           max(var(--u-space-24), env(safe-area-inset-bottom));
+  background: var(--u-background-primary);
+  border-radius: var(--u-radius-xl) var(--u-radius-xl) 0 0;
+  box-shadow: var(--u-shadow-deep-below);
+  animation: u-sheet-in var(--u-duration-slow) var(--u-ease-decelerate);
+}
+.u-sheet__grab {
+  width: 36px; height: 4px; margin: var(--u-space-8) auto var(--u-space-16);
+  border-radius: var(--u-radius-pill); background: var(--u-background-tertiary);
+}
+.u-sheet__title {
+  margin-bottom: var(--u-space-12);
+  font-family: var(--u-type-heading-x-small-family);
+  font-size: var(--u-type-heading-x-small-size);
+  font-weight: var(--u-type-heading-x-small-weight);
+}
+@keyframes u-fade { from { opacity: 0; } }
+@keyframes u-sheet-in { from { transform: translateY(100%); } }
+
+/* Demo only: re-anchor to a positioned ancestor so a review gallery can show
+   a sheet inside a phone frame. Never use this in a lesson. */
+.u-scrim--inline, .u-sheet--inline { position: absolute; }

@@ -1,0 +1,7 @@
+{
+  "//": "Open this file in VS Code rather than the folder, so the confidential client PDFs one level up are never in the workspace.",
+  "folders": [{ "path": "." }],
+  "settings": {
+    "window.title": "Uber Learn — ${activeEditorShort}"
+  }
+}

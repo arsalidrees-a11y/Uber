@@ -1,0 +1,62 @@
+<!-- =====================================================================
+     Open edX micro-lesson template.
+
+     WHERE THIS GOES
+       Studio -> Unit -> Add Component -> Text (HTML XBlock) -> Edit as HTML.
+       Paste everything below the stylesheet link.
+
+     DO NOT ADD <link> OR <script> TAGS HERE
+       The CSS and JS are loaded course-wide, not per unit. See the
+       "Delivery" section of CLAUDE.md. Two reasons this is not optional:
+
+       1. frontend-app-learning renders EVERY unit in its own iframe, a
+          separate document. A <link> in unit 1 does nothing for unit 2, so
+          "reference it once per course" inside unit markup is impossible.
+       2. Studio's TinyMCE editor silently DELETES <link rel="stylesheet">,
+          because <link> is not a valid child of <body> in its HTML5 schema.
+          You would paste it, save, and it would be gone with no warning.
+
+       Set them in Studio -> Settings -> Advanced Settings instead, as
+       "Course-wide custom css" and "Course-wide custom js". Those ARE
+       injected into every unit iframe.
+     ===================================================================== -->
+
+<div class="screen u-safe">
+
+  <header class="u-stack" style="margin-bottom: var(--u-space-24)">
+    <p class="u-label-x-small" style="color: var(--u-program-safety)">LESSON {{n}} OF {{total}}</p>
+    <h2 class="u-heading-medium">{{lesson_title}}</h2>
+  </header>
+
+  <!-- Video. Open edX supplies its own player component; use this block only
+       for an inline embed. Captions come from the .vtt Uber supplies. -->
+  <div style="aspect-ratio:16/9;border-radius:var(--u-radius-md);overflow:hidden;
+              background:var(--u-background-always-dark);margin-bottom:var(--u-space-24)">
+    {{video_embed}}
+  </div>
+
+  <p class="u-paragraph-medium" style="color:var(--u-content-secondary)">{{intro}}</p>
+
+  <!-- Collapsible detail. Replaces the wall of text Meredith flagged.
+       Uses <details> so it needs no JavaScript and stays accessible. -->
+  <details class="u-acc" style="margin-top:var(--u-space-24)">
+    <summary class="u-acc__head">{{section_title}}
+      <svg class="u-acc__chev" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+        <path d="M5 8l5 5 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+    </summary>
+    <div class="u-acc__body">{{section_body}}</div>
+  </details>
+
+  <!-- Knowledge check. Ungraded retention check, not an assessment.
+       For a GRADED question use the native Problem XBlock instead, so the
+       grade lands in the Open edX gradebook rather than in markup. -->
+  <div class="u-kc" style="margin-top:var(--u-space-32)">
+    <p class="u-kc__q">{{question}}</p>
+    <button class="u-kc__opt" role="radio" aria-checked="false" data-correct="false">{{option_a}}</button>
+    <button class="u-kc__opt" role="radio" aria-checked="false" data-correct="true">{{option_b}}</button>
+    <button class="u-kc__opt" role="radio" aria-checked="false" data-correct="false">{{option_c}}</button>
+    <p class="u-kc__feedback" hidden>{{feedback}}</p>
+  </div>
+
+</div>

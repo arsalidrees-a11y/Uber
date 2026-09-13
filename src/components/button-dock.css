@@ -1,0 +1,19 @@
+/* ButtonDock (16 instances) - the sticky action bar at the bottom of a
+   lesson. On a webview this is where "Continue" lives, so it must clear the
+   home indicator and sit above scrolling content. */
+.u-dock {
+  position: sticky; bottom: 0; z-index: 30;
+  display: grid; gap: var(--u-space-8);
+  padding: var(--u-space-12) var(--u-space-16)
+           max(var(--u-space-12), env(safe-area-inset-bottom));
+  background: var(--u-background-primary);
+  box-shadow: var(--u-shadow-shallow-above);
+}
+.u-dock--split { grid-template-columns: 1fr 1fr; }
+.u-dock--transparent { background: transparent; box-shadow: none; }
+/* Fades content out behind the dock rather than cutting it hard. */
+.u-dock--fade::before {
+  content: ""; position: absolute; left: 0; right: 0; bottom: 100%; height: 24px;
+  background: linear-gradient(to top, var(--u-background-primary), transparent);
+  pointer-events: none;
+}

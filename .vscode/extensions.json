@@ -1,0 +1,7 @@
+{
+  "//": "Two extensions carry this workflow. Everything else is optional.",
+  "recommendations": [
+    "anthropic.claude-code",
+    "figma.figma-vscode-extension"
+  ]
+}

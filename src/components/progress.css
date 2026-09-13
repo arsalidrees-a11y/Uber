@@ -1,0 +1,75 @@
+/* Progress bar + stepper.
+   Figma: Progress (21149:276741), Progress - Steps (21149:276745) */
+.u-progress {
+  height: 4px; border-radius: var(--u-radius-pill);
+  background: var(--u-background-tertiary); overflow: hidden;
+}
+.u-progress__fill {
+  height: 100%; width: var(--pct, 0%); border-radius: inherit;
+  background: var(--u-program-safety);
+  transition: width var(--u-duration-slow) var(--u-ease-decelerate);
+}
+.u-progress--positive .u-progress__fill { background: var(--u-background-positive); }
+
+/* Segmented stepper - one bar per lesson, the pattern drivers read fastest. */
+.u-steps { display: flex; gap: var(--u-space-4); }
+.u-steps__seg {
+  flex: 1; height: 4px; border-radius: var(--u-radius-pill);
+  background: var(--u-background-tertiary);
+  transition: background var(--u-duration-base) var(--u-ease-standard);
+}
+.u-steps__seg[data-state="done"]    { background: var(--u-background-positive); }
+.u-steps__seg[data-state="current"] { background: var(--u-program-safety); }
+
+/* Vertical listed steps. */
+.u-vsteps { display: grid; gap: 0; }
+.u-vstep { display: grid; grid-template-columns: 24px 1fr; gap: var(--u-space-12);
+           padding-bottom: var(--u-space-20); position: relative; }
+.u-vstep:not(:last-child)::before {
+  content: ""; position: absolute; left: 11px; top: 24px; bottom: 0;
+  width: 2px; background: var(--u-border-opaque);
+}
+.u-vstep[data-state="done"]::before { background: var(--u-background-positive); }
+.u-vstep__dot {
+  width: 24px; height: 24px; border-radius: 50%; display: grid; place-items: center;
+  background: var(--u-background-tertiary); color: var(--u-content-tertiary);
+  font-family: var(--u-type-label-x-small-family);
+  font-size: var(--u-type-label-x-small-size); z-index: 1;
+}
+.u-vstep[data-state="done"]    .u-vstep__dot { background: var(--u-background-positive); color: var(--u-content-on-color); }
+.u-vstep[data-state="current"] .u-vstep__dot { background: var(--u-background-always-dark); color: var(--u-content-on-color); }
+.u-vstep__label { font-family: var(--u-type-label-small-family);
+                  font-size: var(--u-type-label-small-size);
+                  font-weight: var(--u-type-label-small-weight); }
+.u-vstep__sub { margin-top: var(--u-space-2);
+                font-family: var(--u-type-paragraph-small-family);
+                font-size: var(--u-type-paragraph-small-size);
+                color: var(--u-content-tertiary); }
+
+/* Indeterminate - unknown duration, e.g. a lesson still loading. */
+.u-progress--indeterminate .u-progress__fill {
+  width: 40%; animation: u-indet 1.4s var(--u-ease-standard) infinite;
+}
+@keyframes u-indet {
+  from { transform: translateX(-100%); }
+  to   { transform: translateX(250%); }
+}
+
+/* Progress pill - a determinate bar carrying its own label. */
+.u-progress-pill {
+  position: relative; overflow: hidden;
+  display: inline-flex; align-items: center; justify-content: center;
+  min-width: 88px; height: 28px; padding: 0 var(--u-space-12);
+  border-radius: var(--u-radius-pill);
+  background: var(--u-background-secondary);
+  font-family: var(--u-type-label-x-small-family);
+  font-size: var(--u-type-label-x-small-size);
+  font-weight: var(--u-type-label-x-small-weight);
+  color: var(--u-content-primary);
+}
+.u-progress-pill::before {
+  content: ""; position: absolute; inset: 0; width: var(--pct, 0%);
+  background: var(--u-background-accent-light);
+  transition: width var(--u-duration-slow) var(--u-ease-decelerate);
+}
+.u-progress-pill > * { position: relative; }

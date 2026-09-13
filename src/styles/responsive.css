@@ -1,0 +1,107 @@
+/* ----------------------------------------------------------------------
+ * Web vs mobile.
+ *
+ * THE SHIPPING TARGET IS A WEBVIEW INSIDE THE UBER DRIVER APP.
+ * Mobile is therefore the DEFAULT, not a breakpoint. Every component's base
+ * styles are the mobile ones. Web is the exception, opted into explicitly.
+ *
+ * Two axes, deliberately separate:
+ *
+ *   MODALITY  decides touch targets and hover.  A webview on a tablet is
+ *             wide but still touch, so width must never shrink a target.
+ *   WIDTH     decides layout only: two-month calendar, side nav vs bottom
+ *             nav, dialog vs sheet.
+ *
+ * Base's Figma names these `/ Web` and `/ Mobile`, so `.u-web` and
+ * `.u-mobile` force either one regardless of the device.
+ * -------------------------------------------------------------------- */
+
+:root {
+  --u-target: 44px;            /* WCAG touch minimum */
+  --u-gutter: var(--u-space-16);
+  --u-modality: touch;
+}
+
+/* Real pointer, e.g. the content team in Studio on a laptop. */
+@media (hover: hover) and (pointer: fine) {
+  :root { --u-target: 36px; --u-gutter: var(--u-space-12); --u-modality: pointer; }
+}
+
+/* Explicit overrides win over detection. These mirror the Figma variants. */
+.u-mobile { --u-target: 44px; --u-gutter: var(--u-space-16); --u-modality: touch; }
+.u-web    { --u-target: 36px; --u-gutter: var(--u-space-12); --u-modality: pointer; }
+
+/* Layout / Compact and Layout / Normal from the Figma foundation section. */
+.u-layout-compact { --u-gutter: var(--u-space-12); }
+.u-layout-normal  { --u-gutter: var(--u-space-16); }
+
+/* --- targets follow modality, never width --------------------------- */
+.u-li, .u-menu__item, .u-sidenav__item, .u-select__opt,
+.u-tab, .u-pagination__btn, .u-check, .u-toggle { min-height: var(--u-target); }
+
+/* --- hover belongs to pointer devices only --------------------------- */
+@media (hover: hover) and (pointer: fine) {
+  .u-li:hover,
+  .u-menu__item:hover,
+  .u-select__opt:hover,
+  .u-sidenav__item:hover      { background: var(--u-background-secondary); }
+  .u-cal__day:hover           { background: var(--u-background-secondary); }
+  .u-btn:hover                { opacity: .92; }
+  .u-tile:hover               { box-shadow: inset 0 0 0 2px var(--u-border-opaque); }
+  .u-header__btn:hover,
+  .u-cal__nav:hover           { background: var(--u-background-secondary); }
+}
+/* Touch gets a press state instead, because hover never resolves. */
+@media (hover: none) {
+  .u-btn:active  { opacity: .9; }
+  .u-tile:active { background: var(--u-background-secondary); }
+}
+
+/* --- date picker: Web shows two months, Mobile scrolls one column ----- */
+.u-cal--web { display: grid; grid-template-columns: 1fr 1fr; gap: var(--u-space-24); }
+.u-cal--web .u-cal__head { grid-column: 1 / -1; }
+.u-cal--web .u-cal__day  { min-height: 36px; }
+
+.u-cal--mobile { max-height: 420px; overflow-y: auto; scrollbar-width: none; }
+.u-cal--mobile::-webkit-scrollbar { display: none; }
+.u-cal--mobile .u-cal__day { min-height: 44px; }
+
+/* --- web/mobile component pairs --------------------------------------
+   Three components exist in two shapes. Mobile is the DEFAULT, so the
+   web-only shape is hidden with NO class required: an XBlock unit that sets
+   nothing still renders correctly on a phone. Putting .u-web on an ancestor
+   swaps the pair. Earlier this was written the other way round, gated on
+   .u-mobile, which meant a bare page rendered BOTH shapes at once.
+
+     pair              mobile (default)   web (.u-web)
+     time picker       .u-wheel           .u-time
+     navigation        .u-bottomnav       .u-sidenav
+     modal             .u-sheet           .u-dialog                       */
+.u-time    { display: none; }
+.u-sidenav { display: none; }
+.u-dialog  { display: none; }
+
+.u-web .u-time    { display: grid; }
+.u-web .u-sidenav { display: grid; }
+.u-web .u-dialog  { display: block; }
+.u-web .u-wheel,
+.u-web .u-bottomnav,
+.u-web .u-sheet   { display: none; }
+
+/* A review gallery shows both halves of every pair on purpose. */
+.u-showcase .u-time    { display: grid; }
+.u-showcase .u-sidenav { display: grid; }
+.u-showcase .u-dialog  { display: block; }
+.u-showcase .u-wheel   { display: grid; }
+
+/* --- width-driven layout only ---------------------------------------- */
+@media (min-width: 768px) {
+  .u-dialog  { left: 50%; right: auto; width: 420px; transform: translate(-50%, -50%); }
+  .u-carousel { grid-auto-columns: 320px; }
+  .u-snack   { left: auto; right: var(--u-space-24); width: 380px; }
+}
+
+/* A webview must never scroll sideways. This catches it in review. */
+@media (max-width: 430px) {
+  .u-debug-overflow * { outline: 1px solid color-mix(in srgb, red 40%, transparent); }
+}

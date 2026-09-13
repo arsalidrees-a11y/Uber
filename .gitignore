@@ -1,0 +1,10 @@
+node_modules/
+dist/
+.DS_Store
+
+# Personal editor and Claude Code overrides, not team config.
+.claude/settings.local.json
+
+# Confidential client material must never be committed.
+*.pdf
+tokens/incoming.json

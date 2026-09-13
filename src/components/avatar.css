@@ -1,0 +1,25 @@
+/* Avatar - image or initials, optional presence dot (162 instances). */
+.u-avatar {
+  position: relative; flex: none; display: grid; place-items: center;
+  width: var(--size, 40px); height: var(--size, 40px);
+  border-radius: 50%; overflow: hidden;
+  background: var(--u-background-accent-light); color: var(--u-content-accent);
+  font-family: var(--u-type-label-small-family);
+  font-size: calc(var(--size, 40px) * 0.36);
+  font-weight: var(--u-type-label-small-weight);
+  text-transform: uppercase; user-select: none;
+}
+.u-avatar img { width: 100%; height: 100%; object-fit: cover; }
+.u-avatar--xs { --size: 24px; } .u-avatar--sm { --size: 32px; }
+.u-avatar--lg { --size: 56px; } .u-avatar--xl { --size: 72px; }
+.u-avatar__presence {
+  position: absolute; right: 0; bottom: 0;
+  width: 28%; height: 28%; border-radius: 50%;
+  background: var(--u-background-positive);
+  box-shadow: 0 0 0 2px var(--u-background-primary);
+}
+.u-avatar-group { display: flex; }
+.u-avatar-group .u-avatar + .u-avatar {
+  margin-left: calc(var(--size, 40px) * -0.3);
+  box-shadow: 0 0 0 2px var(--u-background-primary);
+}

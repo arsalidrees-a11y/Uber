@@ -1,0 +1,25 @@
+{
+  "name": "uber-learn",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Uber-branded HTML/CSS component kit for the Open edX safety-learning pilot",
+  "scripts": {
+    "tokens": "node scripts/build-tokens.mjs",
+    "dev": "npm run tokens && npm run behaviors && vite",
+    "build": "npm run tokens && npm run behaviors && vite build",
+    "preview": "vite preview",
+    "coverage": "node scripts/coverage.mjs",
+    "validate": "node scripts/validate.mjs",
+    "gallery": "node scripts/build-gallery.mjs",
+    "check": "npm run lint && npm run build && npm run gallery && npm run coverage && npm run validate && npm test",
+    "test": "node scripts/test.mjs",
+    "behaviors": "node scripts/build-behaviors.mjs",
+    "lint": "node scripts/lint.mjs",
+    "tokens:merge": "node scripts/merge-figma-vars.mjs"
+  },
+  "devDependencies": {
+    "jsdom": "^29.1.1",
+    "vite": "^7.1.5"
+  }
+}

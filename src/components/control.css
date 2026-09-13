@@ -1,0 +1,53 @@
+/* Control - checkbox, radio, toggle.
+   Figma: Control (13604:111951), Selectors (21162:305687) */
+.u-check { display: flex; align-items: center; gap: var(--u-space-12);
+           min-height: 44px; cursor: pointer; }
+.u-check input { position: absolute; opacity: 0; width: 0; height: 0; }
+.u-check__box {
+  flex: none; width: 22px; height: 22px; display: grid; place-items: center;
+  border-radius: var(--u-radius-xs);
+  box-shadow: inset 0 0 0 2px var(--u-border-opaque);
+  background: var(--u-background-primary);
+  transition: background var(--u-duration-fast) var(--u-ease-standard),
+              box-shadow var(--u-duration-fast) var(--u-ease-standard);
+}
+.u-check__box--radio { border-radius: 50%; }
+.u-check input:checked + .u-check__box {
+  background: var(--u-background-always-dark); box-shadow: none;
+}
+/* Checkbox mark. */
+.u-check input:checked + .u-check__box:not(.u-check__box--radio)::after {
+  content: "\2713"; color: var(--u-content-on-color); font-size: 13px; line-height: 1;
+}
+/* Radio dot: same checked state, different mark. */
+.u-check__box--radio::after {
+  content: ""; display: none;
+  width: 8px; height: 8px; border-radius: 50%;
+  background: var(--u-content-on-color);
+}
+.u-check input:checked + .u-check__box--radio::after { display: block; }
+
+.u-check input:focus-visible + .u-check__box { outline: 2px solid var(--u-border-accent);
+                                               outline-offset: 2px; }
+.u-check input:disabled + .u-check__box { box-shadow: inset 0 0 0 2px var(--u-border-state-disabled);
+                                          background: var(--u-background-state-disabled); }
+.u-check__label { font-family: var(--u-type-paragraph-medium-family);
+                  font-size: var(--u-type-paragraph-medium-size); }
+
+.u-toggle { display: flex; align-items: center; gap: var(--u-space-12);
+            min-height: 44px; cursor: pointer; }
+.u-toggle input { position: absolute; opacity: 0; width: 0; height: 0; }
+.u-toggle__track {
+  flex: none; width: 48px; height: 28px; border-radius: var(--u-radius-pill);
+  background: var(--u-background-tertiary); padding: 3px;
+  transition: background var(--u-duration-base) var(--u-ease-standard);
+}
+.u-toggle__thumb {
+  width: 22px; height: 22px; border-radius: 50%;
+  background: var(--u-background-primary); box-shadow: var(--u-shadow-shallow-below);
+  transition: transform var(--u-duration-base) var(--u-ease-standard);
+}
+.u-toggle input:checked + .u-toggle__track { background: var(--u-background-always-dark); }
+.u-toggle input:checked + .u-toggle__track .u-toggle__thumb { transform: translateX(20px); }
+.u-toggle input:focus-visible + .u-toggle__track { outline: 2px solid var(--u-border-accent);
+                                                   outline-offset: 2px; }

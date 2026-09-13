@@ -1,0 +1,47 @@
+/* TimePicker - Base ships two shapes and neither is the OS clock.
+   Select: three columns of options.   Pinwheel: scroll-snap wheels. */
+.u-time { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: var(--u-space-8); }
+.u-time__col {
+  max-height: 200px; overflow-y: auto; scrollbar-width: none;
+  border-radius: var(--u-radius-sm); background: var(--u-background-secondary);
+}
+.u-time__col::-webkit-scrollbar { display: none; }
+.u-time__opt {
+  display: block; width: 100%; min-height: 40px; border: none; background: none;
+  color: var(--u-content-primary);
+  font-family: var(--u-type-paragraph-medium-family);
+  font-size: var(--u-type-paragraph-medium-size);
+  font-variant-numeric: tabular-nums;
+}
+.u-time__opt[aria-selected="true"] {
+  background: var(--u-background-always-dark); color: var(--u-content-on-color);
+}
+.u-time__delim { display: grid; place-items: center; color: var(--u-content-tertiary); }
+
+/* Pinwheel: a centred band with the wheels snapping under it. */
+.u-wheel { position: relative; display: grid; grid-auto-flow: column;
+           gap: var(--u-space-4); height: 180px; overflow: hidden; }
+.u-wheel::before {
+  content: ""; position: absolute; left: 0; right: 0; top: 50%; height: 44px;
+  transform: translateY(-50%); border-radius: var(--u-radius-sm);
+  background: var(--u-background-secondary); pointer-events: none;
+}
+.u-wheel__col {
+  position: relative; overflow-y: auto; scroll-snap-type: y mandatory;
+  scrollbar-width: none; padding: 68px 0; text-align: center;
+}
+.u-wheel__col::-webkit-scrollbar { display: none; }
+.u-wheel__unit {
+  display: block; width: 100%; border: none; background: none;
+  scroll-snap-align: center; height: 44px; line-height: 44px;
+  color: var(--u-content-tertiary);
+  font-family: var(--u-type-paragraph-medium-family);
+  font-size: var(--u-type-paragraph-medium-size);
+  font-variant-numeric: tabular-nums;
+  transition: color var(--u-duration-fast) var(--u-ease-standard);
+}
+.u-wheel__unit[aria-selected="true"] {
+  color: var(--u-content-primary);
+  font-family: var(--u-type-label-medium-family);
+  font-weight: var(--u-type-label-medium-weight);
+}

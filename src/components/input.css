@@ -1,0 +1,45 @@
+/* Input family - text field, textarea, search, select.
+   Figma: Input - Text field / Text area / Search / Select (21154:*) */
+.u-field { display: grid; gap: var(--u-space-8); }
+.u-field__label {
+  font-family: var(--u-type-label-small-family);
+  font-size: var(--u-type-label-small-size);
+  font-weight: var(--u-type-label-small-weight);
+  color: var(--u-content-primary);
+}
+.u-input {
+  width: 100%; min-height: 48px; padding: var(--u-space-12) var(--u-space-16);
+  border: none; border-radius: var(--u-radius-sm);
+  background: var(--u-background-secondary);
+  color: var(--u-content-primary);
+  font-family: var(--u-type-paragraph-medium-family);
+  font-size: var(--u-type-paragraph-medium-size);   /* 16px: stops iOS zoom-on-focus */
+  box-shadow: inset 0 0 0 2px transparent;
+  transition: box-shadow var(--u-duration-fast) var(--u-ease-standard);
+}
+.u-input::placeholder { color: var(--u-content-tertiary); }
+.u-input:focus { outline: none; box-shadow: inset 0 0 0 2px var(--u-border-selected); }
+.u-input[disabled] { background: var(--u-background-state-disabled);
+                     color: var(--u-content-state-disabled); }
+.u-input--error { box-shadow: inset 0 0 0 2px var(--u-border-negative); }
+.u-field__hint {
+  font-family: var(--u-type-paragraph-x-small-family);
+  font-size: var(--u-type-paragraph-x-small-size);
+  color: var(--u-content-tertiary);
+}
+.u-field__hint--error { color: var(--u-content-negative); }
+textarea.u-input { min-height: 96px; resize: vertical; line-height: 1.5; }
+
+.u-input-wrap { position: relative; display: flex; align-items: center; }
+.u-input-wrap .u-input { padding-left: var(--u-space-48); }
+.u-input-wrap__icon { position: absolute; left: var(--u-space-16);
+                      color: var(--u-content-tertiary); pointer-events: none; }
+
+select.u-input {
+  appearance: none; padding-right: var(--u-space-40);
+  background-image: linear-gradient(45deg, transparent 50%, currentColor 50%),
+                    linear-gradient(135deg, currentColor 50%, transparent 50%);
+  background-position: calc(100% - 20px) 21px, calc(100% - 14px) 21px;
+  background-size: 6px 6px, 6px 6px;
+  background-repeat: no-repeat;
+}

@@ -1,0 +1,23 @@
+/* ProgressRing - completion dial. Pure CSS, no SVG, no JS. */
+.u-ring {
+  --pct: 0;
+  position: relative; display: grid; place-items: center;
+  width: var(--size, 96px); aspect-ratio: 1; border-radius: 50%;
+  background: conic-gradient(
+    var(--u-program-safety) calc(var(--pct) * 1%),
+    var(--u-background-tertiary) 0
+  );
+  transition: background var(--u-duration-slow) var(--u-ease-decelerate);
+}
+.u-ring::before {
+  content: ""; position: absolute; inset: 8px;
+  border-radius: 50%; background: var(--u-background-primary);
+}
+.u-ring__value {
+  position: relative;
+  font-family: var(--u-type-heading-small-family);
+  font-size: var(--u-type-heading-small-size);
+  font-weight: var(--u-type-heading-small-weight);
+  color: var(--u-content-primary);
+}
+.u-ring--complete { background: conic-gradient(var(--u-background-positive) 100%, transparent 0); }

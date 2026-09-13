@@ -1,0 +1,15 @@
+/* MessageCard - Carousel (2 instances). Scroll-snap, which is also the
+   Masterclass-style themed row Meredith called out. */
+.u-carousel {
+  display: grid; grid-auto-flow: column; grid-auto-columns: 84%;
+  gap: var(--u-space-12); overflow-x: auto; scroll-snap-type: x mandatory;
+  scrollbar-width: none; padding-bottom: var(--u-space-4);
+  /* Bleed to the viewport edge, so cards run off-screen like a real shelf. */
+  margin-inline: calc(var(--u-space-16) * -1);
+  padding-inline: var(--u-space-16);
+  overscroll-behavior-x: contain;
+}
+.u-carousel::-webkit-scrollbar { display: none; }
+.u-carousel > * { scroll-snap-align: start; }
+.u-carousel--peek { grid-auto-columns: 72%; }
+.u-carousel--tiles { grid-auto-columns: 40%; }

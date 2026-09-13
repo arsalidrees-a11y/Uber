@@ -1,0 +1,47 @@
+/* Menu + MenuItem (57 instances). Figma: Menu (21969:345087) */
+.u-menu {
+  min-width: 200px; padding: var(--u-space-8) 0;
+  background: var(--u-background-primary);
+  border-radius: var(--u-radius-sm);
+  box-shadow: var(--u-shadow-shallow-below);
+}
+.u-menu__item {
+  display: flex; align-items: center; gap: var(--u-space-12);
+  width: 100%; min-height: 44px; padding: var(--u-space-8) var(--u-space-16);
+  border: none; background: none; text-align: left;
+  color: var(--u-content-primary);
+  font-family: var(--u-type-paragraph-medium-family);
+  font-size: var(--u-type-paragraph-medium-size);
+}
+.u-menu__item:active, .u-menu__item[aria-selected="true"] { background: var(--u-background-secondary); }
+.u-menu__item[disabled] { color: var(--u-content-state-disabled); pointer-events: none; }
+.u-menu__item--negative { color: var(--u-content-negative); }
+.u-menu__divider { height: 1px; margin: var(--u-space-8) 0; background: var(--u-border-opaque); }
+.u-menu__group {
+  padding: var(--u-space-8) var(--u-space-16) var(--u-space-4);
+  font-family: var(--u-type-label-x-small-family);
+  font-size: var(--u-type-label-x-small-size);
+  color: var(--u-content-tertiary); text-transform: uppercase; letter-spacing: .04em;
+}
+
+/* MenuItemControl - Small / Medium / Large x Checkbox, Switch, Drag, Group. */
+.u-menu__item--sm { min-height: 36px; font-size: var(--u-type-paragraph-small-size); }
+.u-menu__item--lg { min-height: 56px; font-size: var(--u-type-paragraph-large-size); }
+.u-menu__control { flex: none; display: grid; place-items: center; }
+.u-menu__check {
+  width: 20px; height: 20px; border-radius: var(--u-radius-xs);
+  box-shadow: inset 0 0 0 2px var(--u-border-opaque);
+  display: grid; place-items: center; color: transparent; font-size: 12px;
+}
+.u-menu__item[aria-checked="true"] .u-menu__check {
+  background: var(--u-background-always-dark); box-shadow: none;
+  color: var(--u-content-on-color);
+}
+.u-menu__item[aria-checked="mixed"] .u-menu__check {
+  background: var(--u-background-always-dark); box-shadow: none;
+}
+.u-menu__item[aria-checked="mixed"] .u-menu__check::after {
+  content: ""; width: 10px; height: 2px; border-radius: 1px;
+  background: var(--u-content-on-color);
+}
+.u-menu__item--group { padding-left: var(--u-space-40); }

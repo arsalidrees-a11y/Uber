@@ -1,0 +1,98 @@
+<!-- =====================================================================
+     Accountability dashboard.
+
+     The non-courseware surfaces (dashboard, points, badges, ranking,
+     completion) ship the same way the lessons do: as an HTML XBlock unit,
+     deep-linked from the driver app. Static markup here, values hydrated
+     at runtime from Open edX APIs.
+
+     This keeps ONE component kit and ONE delivery path. No MFE fork, no
+     second styling system, nothing to keep in sync.
+
+     NO <link> OR <script> TAGS HERE - the assets are course-wide. See the
+     "Delivery" section of CLAUDE.md.
+
+     The inline <script> below DOES execute: the unit fragment is rendered
+     server-side into the iframe document by Mako, so the browser parses and
+     runs it at load. The relative fetch also resolves correctly, because the
+     iframe document's origin is the LMS. It needs HTTPS though - production
+     sets SESSION_COOKIE_SAMESITE=None, while local Tutor dev uses Lax and the
+     session cookie will not be sent.
+     ===================================================================== -->
+
+<div class="screen u-safe" id="u-dashboard">
+
+  <h2 class="u-heading-medium" style="margin-bottom:var(--u-space-24)">Your progress</h2>
+
+  <div style="display:grid;place-items:center;gap:var(--u-space-12);margin-bottom:var(--u-space-32)">
+    <div class="u-ring" style="--size:140px" data-u-progress="0" role="progressbar"
+         aria-label="Safety lessons complete">
+      <span class="u-ring__value">0%</span>
+    </div>
+    <p class="u-paragraph-small" style="color:var(--u-content-tertiary)" data-bind="summary">
+      Loading your progress&hellip;
+    </p>
+  </div>
+
+  <div style="display:flex;gap:var(--u-space-8);margin-bottom:var(--u-space-24)">
+    <span class="u-streak u-streak--cold" data-bind="streak"><i class="u-streak__flame">🔥</i> No streak</span>
+    <span class="u-streak" data-bind="points"><i class="u-streak__flame">⭐</i> 0 pts</span>
+  </div>
+
+  <h3 class="u-label-medium" style="margin-bottom:var(--u-space-12)">Badges</h3>
+  <div style="display:grid;grid-template-columns:repeat(4,1fr)" data-bind="badges"></div>
+
+  <div class="u-empty" data-bind="badges-empty" hidden>
+    <span class="u-empty__art">📭</span>
+    <span class="u-empty__title">No badges yet</span>
+    <span class="u-empty__text">Finish your first lesson to earn one.</span>
+  </div>
+
+  <button class="u-btn u-btn--primary u-btn--block"
+          style="margin-top:var(--u-space-28)" data-bind="resume">Resume lesson</button>
+</div>
+
+<script>
+/* Hydration. Replace the endpoint with the pilot's agreed contract during
+   Phase 0 - the proposal leaves the analytics and progress interfaces to be
+   confirmed, so this deliberately reads from one place you can swap. */
+(function () {
+  var root = document.getElementById('u-dashboard');
+  var q = function (sel) { return root.querySelector('[data-bind="' + sel + '"]'); };
+
+  function render(d) {
+    var ring = root.querySelector('.u-ring');
+    ring.setAttribute('data-u-progress', d.percentComplete);
+    window.UberLearn.refresh(root);
+
+    q('summary').textContent = d.completed + ' of ' + d.total + ' safety lessons complete';
+    q('points').innerHTML = '<i class="u-streak__flame">⭐</i> ' + d.points + ' pts';
+
+    var streak = q('streak');
+    streak.className = 'u-streak ' + (d.streakDays > 0 ? 'u-streak--active' : 'u-streak--cold');
+    streak.innerHTML = '<i class="u-streak__flame">🔥</i> ' +
+      (d.streakDays > 0 ? d.streakDays + ' day streak' : 'No streak');
+
+    var wrap = q('badges');
+    wrap.innerHTML = '';
+    (d.badges || []).forEach(function (b) {
+      var el = document.createElement('div');
+      el.className = 'u-achievement' + (b.earned ? '' : ' u-achievement--locked');
+      el.innerHTML = '<span class="u-achievement__disc"></span><span class="u-achievement__name"></span>';
+      el.querySelector('.u-achievement__disc').textContent = b.icon;
+      el.querySelector('.u-achievement__name').textContent = b.name;   // textContent, never innerHTML
+      wrap.appendChild(el);
+    });
+    var none = !(d.badges || []).some(function (b) { return b.earned; });
+    q('badges-empty').hidden = !none;
+    wrap.hidden = none;
+  }
+
+  fetch('/api/uber-learn/v1/progress', { credentials: 'same-origin' })
+    .then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
+    .then(render)
+    .catch(function () {
+      q('summary').textContent = 'Could not load your progress. Pull down to retry.';
+    });
+})();
+</script>

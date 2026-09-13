@@ -1,0 +1,17 @@
+/* Pagination (423 instances). Figma: Pagination (21969:345086) */
+.u-pagination { display: flex; align-items: center; gap: var(--u-space-4); }
+.u-pagination__btn {
+  min-width: 40px; height: 40px; padding: 0 var(--u-space-8);
+  display: grid; place-items: center;
+  border: none; border-radius: var(--u-radius-xs); background: none;
+  color: var(--u-content-primary);
+  font-family: var(--u-type-label-small-family);
+  font-size: var(--u-type-label-small-size);
+  font-weight: var(--u-type-label-small-weight);
+}
+.u-pagination__btn:active { background: var(--u-background-secondary); }
+.u-pagination__btn[aria-current="page"] {
+  background: var(--u-background-always-dark); color: var(--u-content-on-color);
+}
+.u-pagination__btn[disabled] { color: var(--u-content-state-disabled); pointer-events: none; }
+.u-pagination__gap { padding: 0 var(--u-space-4); color: var(--u-content-tertiary); }

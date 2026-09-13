@@ -1,0 +1,74 @@
+/* ----------------------------------------------------------------------
+ * base.css - reset + webview hardening.
+ * Everything here assumes the page renders inside the Uber driver app's
+ * in-app webview, not a desktop browser.
+ * -------------------------------------------------------------------- */
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html {
+  -webkit-text-size-adjust: 100%;   /* iOS must not reflow our type scale */
+  text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--u-background-primary);
+  color: var(--u-content-primary);
+  font-family: var(--u-type-paragraph-medium-family);
+  font-size: var(--u-type-paragraph-medium-size);
+  line-height: var(--u-type-paragraph-medium-leading);
+  -webkit-font-smoothing: antialiased;
+
+  /* No rubber-band scroll past the ends - it exposes the host app chrome. */
+  overscroll-behavior-y: none;
+}
+
+/* Respect the notch and home indicator. */
+.u-safe {
+  padding-left: max(var(--u-space-16), env(safe-area-inset-left));
+  padding-right: max(var(--u-space-16), env(safe-area-inset-right));
+  padding-bottom: max(var(--u-space-16), env(safe-area-inset-bottom));
+}
+
+/* Touch, not mouse. */
+button, [role="button"], a, summary, label, input {
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+button, [role="button"], summary { cursor: pointer; user-select: none; }
+
+/* Every interactive target clears the 44px minimum. */
+.u-target { min-height: 44px; min-width: 44px; }
+
+/* Visible focus for keyboard and switch-control users only. */
+:focus-visible {
+  outline: 2px solid var(--u-border-accent);
+  outline-offset: 2px;
+  border-radius: var(--u-radius-xs);
+}
+:focus:not(:focus-visible) { outline: none; }
+
+img, svg, video { max-width: 100%; height: auto; display: block; }
+
+h1, h2, h3, h4, p, figure { margin: 0; }
+ul, ol { margin: 0; padding: 0; list-style: none; }
+
+/* Drivers may have Reduce Motion on. Honour it everywhere. */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+.u-visually-hidden {
+  position: absolute; width: 1px; height: 1px;
+  padding: 0; margin: -1px; overflow: hidden;
+  clip-path: inset(50%); white-space: nowrap;
+}
+
+.u-stack > * + * { margin-top: var(--u-space-12); }
+.u-stack-lg > * + * { margin-top: var(--u-space-24); }

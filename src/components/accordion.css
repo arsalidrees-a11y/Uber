@@ -1,0 +1,30 @@
+/* Accordion - Meredith's explicit ask: collapse the wall of text.
+   Built on <details>/<summary>, so it works with no JavaScript at all. */
+.u-acc {
+  border-bottom: 1px solid var(--u-border-opaque);
+  background: var(--u-background-primary);
+}
+.u-acc__head {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: var(--u-space-12); padding: var(--u-space-16) 0; min-height: 44px;
+  font-family: var(--u-type-label-medium-family);
+  font-size: var(--u-type-label-medium-size);
+  font-weight: var(--u-type-label-medium-weight);
+  color: var(--u-content-primary);
+  list-style: none;
+}
+.u-acc__head::-webkit-details-marker { display: none; }
+.u-acc__chev {
+  flex: none; width: 20px; height: 20px;
+  transition: transform var(--u-duration-base) var(--u-ease-standard);
+}
+.u-acc[open] .u-acc__chev { transform: rotate(180deg); }
+.u-acc__body {
+  padding-bottom: var(--u-space-16);
+  font-family: var(--u-type-paragraph-small-family);
+  font-size: var(--u-type-paragraph-small-size);
+  line-height: var(--u-type-paragraph-small-leading);
+  color: var(--u-content-secondary);
+}
+.u-acc[open] .u-acc__body { animation: u-reveal var(--u-duration-base) var(--u-ease-decelerate); }
+@keyframes u-reveal { from { opacity: 0; transform: translateY(-4px); } }

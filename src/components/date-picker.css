@@ -1,0 +1,60 @@
+/* DatePicker - a real Base calendar, not the OS picker.
+   Figma: Date picker Small/Medium, Web + Mobile (19295:67936 and siblings)
+   Header with chevrons, Su-Sa column labels, 7 column grid, muted adjacent
+   month days, range support. */
+.u-cal { width: 100%; }
+.u-cal__head {
+  display: grid; grid-template-columns: 44px 1fr 44px;
+  align-items: center; margin-bottom: var(--u-space-8);
+}
+.u-cal__nav {
+  width: 44px; height: 44px; display: grid; place-items: center;
+  border: none; background: none; border-radius: 50%;
+  color: var(--u-content-primary); font-size: 1.1rem; line-height: 1;
+}
+.u-cal__nav:active { background: var(--u-background-secondary); }
+.u-cal__nav[disabled] { color: var(--u-content-state-disabled); pointer-events: none; }
+.u-cal__month {
+  text-align: center;
+  font-family: var(--u-type-label-small-family);
+  font-size: var(--u-type-label-small-size);
+  font-weight: var(--u-type-label-small-weight);
+  color: var(--u-content-primary);
+}
+.u-cal__grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 2px; }
+.u-cal__dow {
+  display: grid; place-items: center; height: 28px;
+  font-family: var(--u-type-paragraph-x-small-family);
+  font-size: var(--u-type-paragraph-x-small-size);
+  color: var(--u-content-tertiary);
+}
+.u-cal__day {
+  position: relative; display: grid; place-items: center;
+  aspect-ratio: 1; min-height: 40px; border: none; background: none;
+  border-radius: 50%; color: var(--u-content-primary);
+  font-family: var(--u-type-paragraph-small-family);
+  font-size: var(--u-type-paragraph-small-size);
+  font-variant-numeric: tabular-nums;
+  transition: background var(--u-duration-fast) var(--u-ease-standard),
+              color      var(--u-duration-fast) var(--u-ease-standard);
+}
+.u-cal__day:active { background: var(--u-background-secondary); }
+.u-cal__day[data-muted="true"]   { color: var(--u-content-state-disabled); }
+.u-cal__day[disabled]            { color: var(--u-content-state-disabled); pointer-events: none; }
+.u-cal__day[data-today="true"]   { box-shadow: inset 0 0 0 1px var(--u-border-selected); }
+.u-cal__day[aria-selected="true"]{ background: var(--u-background-always-dark);
+                                   color: var(--u-content-on-color); }
+/* Range: square the middles so the run reads as one bar. */
+.u-cal__day[data-range="in"]  { background: var(--u-background-secondary); border-radius: 0; }
+.u-cal__day[data-range="start"] { border-radius: 50% 0 0 50%; }
+.u-cal__day[data-range="end"]   { border-radius: 0 50% 50% 0; }
+
+.u-cal__monthlabel {
+  margin: var(--u-space-24) 0 var(--u-space-8);
+  font-family: var(--u-type-label-small-family);
+  font-size: var(--u-type-label-small-size);
+  font-weight: var(--u-type-label-small-weight);
+}
+/* Mobile variant scrolls a continuous run of months. */
+.u-cal--scroll { max-height: 420px; overflow-y: auto; scrollbar-width: none; }
+.u-cal--scroll::-webkit-scrollbar { display: none; }

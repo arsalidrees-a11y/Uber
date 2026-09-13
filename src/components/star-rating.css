@@ -1,0 +1,12 @@
+/* StarRating - read-only and interactive.
+   Meredith asked for social proofing via ratings and testimonials. */
+.u-stars { display: inline-flex; gap: var(--u-space-2); align-items: center; }
+.u-stars__s { width: 16px; height: 16px; color: var(--u-border-opaque); }
+.u-stars__s[data-on="true"] { color: var(--u-yellow-300); }
+.u-stars--lg .u-stars__s { width: 24px; height: 24px; }
+.u-stars__count {
+  margin-left: var(--u-space-4);
+  font-family: var(--u-type-paragraph-small-family);
+  font-size: var(--u-type-paragraph-small-size);
+  color: var(--u-content-tertiary);
+}

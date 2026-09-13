@@ -1,0 +1,39 @@
+/* Header + BottomNavigation.
+   Figma: Headers (21154:338770), Bottom Navigation (14329:8878) */
+.u-header {
+  position: sticky; top: 0; z-index: 20;
+  display: flex; align-items: center; gap: var(--u-space-12);
+  min-height: 56px; padding: 0 var(--u-space-8);
+  padding-top: env(safe-area-inset-top);
+  background: var(--u-background-primary);
+  box-shadow: inset 0 -1px 0 var(--u-border-opaque);
+}
+.u-header__btn {
+  display: grid; place-items: center; width: 44px; height: 44px;
+  border: none; background: none; border-radius: 50%;
+  color: var(--u-content-primary); font-size: 1.25rem;
+}
+.u-header__title {
+  flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+  font-family: var(--u-type-label-large-family);
+  font-size: var(--u-type-label-large-size);
+  font-weight: var(--u-type-label-large-weight);
+}
+.u-header--flush { box-shadow: none; }
+
+.u-bottomnav {
+  position: sticky; bottom: 0; z-index: 20;
+  display: flex; justify-content: space-around;
+  padding-bottom: env(safe-area-inset-bottom);
+  background: var(--u-background-primary);
+  box-shadow: inset 0 1px 0 var(--u-border-opaque);
+}
+.u-bottomnav__item {
+  flex: 1; display: grid; justify-items: center; gap: var(--u-space-4);
+  padding: var(--u-space-8) var(--u-space-4); min-height: 56px;
+  border: none; background: none; color: var(--u-content-tertiary);
+  font-family: var(--u-type-label-x-small-family);
+  font-size: var(--u-type-label-x-small-size);
+}
+.u-bottomnav__item[aria-current="page"] { color: var(--u-content-primary); }
+.u-bottomnav__icon { font-size: 1.25rem; line-height: 1; }

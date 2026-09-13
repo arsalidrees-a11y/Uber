@@ -1,0 +1,40 @@
+/* DraggableList (10 instances) - reorder by drag.
+   This is the interactivity Meredith named directly: "drag and drop or
+   matching hot spots". Pointer-events based, so it works with touch, mouse
+   and pen. Keyboard reorder is supported too, which drag alone never is. */
+.u-drag { display: grid; gap: var(--u-space-8); }
+.u-drag__item {
+  display: flex; align-items: center; gap: var(--u-space-12);
+  padding: var(--u-space-12) var(--u-space-16);
+  background: var(--u-background-primary);
+  border-radius: var(--u-radius-sm);
+  box-shadow: inset 0 0 0 1px var(--u-border-opaque);
+  transition: transform var(--u-duration-base) var(--u-ease-standard),
+              box-shadow var(--u-duration-fast) var(--u-ease-standard);
+}
+.u-drag__item[data-dragging="true"] {
+  box-shadow: var(--u-shadow-deep-below);
+  background: var(--u-background-primary);
+  z-index: 2; position: relative; transition: none;
+}
+.u-drag__item[data-over="true"] { box-shadow: inset 0 0 0 2px var(--u-border-accent); }
+.u-drag__grab {
+  flex: none; width: 24px; height: 24px; display: grid; place-items: center;
+  color: var(--u-content-tertiary); cursor: grab;
+  /* Only the handle owns the gesture. Putting this on the row blocked
+     vertical lesson scrolling everywhere a draggable item appeared. */
+  touch-action: none;
+}
+.u-drag__item[data-dragging="true"] .u-drag__grab { cursor: grabbing; }
+.u-drag__label {
+  flex: 1;
+  font-family: var(--u-type-paragraph-medium-family);
+  font-size: var(--u-type-paragraph-medium-size);
+}
+.u-drag__index {
+  flex: none; width: 24px; height: 24px; display: grid; place-items: center;
+  border-radius: 50%; background: var(--u-background-secondary);
+  font-family: var(--u-type-label-x-small-family);
+  font-size: var(--u-type-label-x-small-size);
+  color: var(--u-content-tertiary);
+}

@@ -1,0 +1,38 @@
+/* Dialog (3) + Modal full screen (5) + Modal overlay (7).
+   The bottom sheet lives in sheet.css; these are the other two modal shapes. */
+.u-dialog {
+  position: fixed; top: 50%; left: var(--u-space-24); right: var(--u-space-24);
+  transform: translateY(-50%); z-index: 51;
+  padding: var(--u-space-24);
+  background: var(--u-background-primary);
+  border-radius: var(--u-radius-lg);
+  box-shadow: var(--u-shadow-deep-below);
+  animation: u-dialog-in var(--u-duration-base) var(--u-ease-decelerate);
+}
+.u-dialog__title {
+  margin-bottom: var(--u-space-8);
+  font-family: var(--u-type-heading-x-small-family);
+  font-size: var(--u-type-heading-x-small-size);
+  font-weight: var(--u-type-heading-x-small-weight);
+}
+.u-dialog__body {
+  font-family: var(--u-type-paragraph-small-family);
+  font-size: var(--u-type-paragraph-small-size);
+  line-height: var(--u-type-paragraph-small-leading);
+  color: var(--u-content-secondary);
+}
+.u-dialog__actions { display: grid; gap: var(--u-space-8); margin-top: var(--u-space-24); }
+.u-dialog__actions--split { grid-template-columns: 1fr 1fr; }
+
+.u-fullscreen {
+  position: fixed; inset: 0; z-index: 52;
+  display: flex; flex-direction: column;
+  background: var(--u-background-primary);
+  animation: u-fullscreen-in var(--u-duration-slow) var(--u-ease-decelerate);
+}
+.u-fullscreen__body { flex: 1; overflow-y: auto; padding: var(--u-space-16); }
+@keyframes u-dialog-in { from { opacity: 0; transform: translateY(-46%) scale(.96); } }
+@keyframes u-fullscreen-in { from { transform: translateY(100%); } }
+
+/* Demo only, as in sheet.css. */
+.u-dialog--inline, .u-fullscreen--inline { position: absolute; }

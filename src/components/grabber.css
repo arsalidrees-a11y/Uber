@@ -1,0 +1,9 @@
+/* Grabber - List (2) and Sheet (1). The affordance that says "drag me". */
+.u-grabber--sheet {
+  width: 36px; height: 4px; margin: var(--u-space-8) auto;
+  border-radius: var(--u-radius-pill); background: var(--u-background-tertiary);
+}
+.u-grabber--list {
+  width: 24px; height: 24px; display: grid; place-items: center;
+  color: var(--u-content-tertiary); cursor: grab;
+}

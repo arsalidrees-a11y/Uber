@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Uber Learn — component gallery</title>
+<link rel="stylesheet" href="/src/styles/index.css">
+<style>
+  /* Gallery chrome only. Never ships to Open edX. */
+  body { background: #F3F3F3; }
+  .g-bar { position: sticky; top: 0; z-index: 10; display: flex; align-items: baseline;
+           gap: 16px; padding: 16px 24px; background: #000; color: #fff; }
+  .g-bar h1 { font-family: var(--u-type-heading-x-small-family); font-size: 18px; font-weight: 700; }
+  .g-bar span { font-family: var(--u-type-paragraph-x-small-family); font-size: 12px; color: #A6A6A6; }
+  .g-wrap { padding: 24px; }
+  .g-row { display: flex; gap: 24px; flex-wrap: wrap; align-items: flex-start; }
+  .g-phone { width: 390px; height: 844px; overflow-y: auto; overflow-x: hidden;
+             background: #fff; border-radius: 28px; box-shadow: 0 8px 40px rgb(0 0 0 / .18);
+             border: 6px solid #000; scrollbar-width: none; }
+  .g-phone::-webkit-scrollbar { display: none; }
+  .g-cap { font: 500 12px var(--u-type-label-x-small-family); color: #5E5E5E;
+           margin: 0 0 8px 4px; letter-spacing: .04em; text-transform: uppercase; }
+  .g-specimens { margin-top: 32px; display: grid;
+                 grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; }
+  .g-card { background: #fff; border-radius: 12px; padding: 20px; }
+  .g-card > h3 { font: 700 13px var(--u-type-label-small-family); margin-bottom: 14px;
+                 color: #000; letter-spacing: .04em; text-transform: uppercase; }
+  .g-swatches { display: grid; grid-template-columns: repeat(auto-fill, minmax(84px,1fr)); gap: 8px; }
+  .g-sw { border-radius: 8px; overflow: hidden; box-shadow: inset 0 0 0 1px rgb(0 0 0 /.08); }
+  .g-sw i { display: block; height: 44px; }
+  .g-sw b { display: block; font: 500 10px var(--u-type-label-x-small-family);
+            padding: 5px 6px; color: #5E5E5E; font-style: normal; }
+  .screen { padding: 20px 16px 40px; }
+  .screen header { margin-bottom: 20px; }
+</style>
+<script src="/uber-learn.js" defer></script>
+</head>
+<body class="u-showcase">
+
+<div class="g-bar">
+  <h1>Uber Learn</h1>
+  <span>Open edX safety pilot · tokens generated from Figma · viewport 390 × 844</span>
+</div>
+
+<div class="g-wrap">
+<div class="g-row">
+
+  <div>
+    <p class="g-cap">Learner home</p>
+    <div class="g-phone"><div class="screen u-safe">
+      <header class="u-stack">
+        <p class="u-label-small" style="color:var(--u-content-tertiary)">Good morning, Sam</p>
+        <h2 class="u-heading-large">Safety</h2>
+      </header>
+
+      <div style="display:flex;gap:8px;margin-bottom:24px">
+        <span class="u-streak u-streak--active"><i class="u-streak__flame">🔥</i> 6 day streak</span>
+        <span class="u-streak"><i class="u-streak__flame">⭐</i> 1,240 pts</span>
+      </div>
+
+      <ul class="u-stack">
+        <li><button class="u-lesson u-lesson--complete">
+          <span class="u-lesson__media">✅</span>
+          <span><span class="u-lesson__title">Spotting distracted driving</span>
+                <span class="u-lesson__meta">Completed · 4 min</span></span>
+          <span aria-hidden="true" style="color:var(--u-content-tertiary)">›</span>
+        </button></li>
+
+        <li><button class="u-lesson" style="--pct:45%">
+          <span class="u-lesson__media">🚦</span>
+          <span><span class="u-lesson__title">Night visibility basics</span>
+                <span class="u-lesson__meta">In progress · 3 min left</span></span>
+          <span aria-hidden="true" style="color:var(--u-content-tertiary)">›</span>
+          <span class="u-lesson__rail"></span>
+        </button></li>
+
+        <li><button class="u-lesson">
+          <span class="u-lesson__media">🅿️</span>
+          <span><span class="u-lesson__title">Safe pickup zones</span>
+                <span class="u-lesson__meta">5 min</span></span>
+          <span aria-hidden="true" style="color:var(--u-content-tertiary)">›</span>
+        </button></li>
+
+        <li><div class="u-lesson u-lesson--locked">
+          <span class="u-lesson__media">🔒</span>
+          <span><span class="u-lesson__title">Passenger conflict de-escalation</span>
+                <span class="u-lesson__meta">Unlocks after 3 lessons</span></span>
+        </div></li>
+      </ul>
+    </div></div>
+  </div>
+
+  <div>
+    <p class="g-cap">Lesson view</p>
+    <div class="g-phone"><div class="screen u-safe">
+      <header class="u-stack" style="margin-bottom:24px">
+        <p class="u-label-x-small" style="color:var(--u-program-safety)">LESSON 2 OF 5</p>
+        <h2 class="u-heading-medium">Night visibility basics</h2>
+      </header>
+
+      <div style="aspect-ratio:16/9;border-radius:12px;background:var(--u-background-always-dark);
+                  display:grid;place-items:center;margin-bottom:24px">
+        <span style="font-size:40px">▶</span>
+      </div>
+
+      <p class="u-paragraph-medium" style="color:var(--u-content-secondary);margin-bottom:24px">
+        Most night-time incidents happen in the first ten minutes after sunset, while your eyes
+        are still adjusting.
+      </p>
+
+      <details class="u-acc" open>
+        <summary class="u-acc__head">Why sunset is the risk window
+          <svg class="u-acc__chev" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+            <path d="M5 8l5 5 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg></summary>
+        <div class="u-acc__body">Your pupils need roughly twenty minutes to fully dilate.
+          Oncoming headlights reset that adjustment each time.</div>
+      </details>
+      <details class="u-acc">
+        <summary class="u-acc__head">Cleaning your windscreen
+          <svg class="u-acc__chev" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+            <path d="M5 8l5 5 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg></summary>
+        <div class="u-acc__body">Interior film scatters light far more than exterior dirt.
+          Wipe the inside of the glass weekly.</div>
+      </details>
+
+      <div class="u-kc" style="margin-top:32px">
+        <p class="u-kc__q">How long do your eyes need to adjust?</p>
+        <button class="u-kc__opt" role="radio" aria-checked="false" data-correct="false">About 2 minutes</button>
+        <button class="u-kc__opt" role="radio" aria-checked="false" data-correct="true">About 20 minutes</button>
+        <button class="u-kc__opt" role="radio" aria-checked="false" data-correct="false">No adjustment needed</button>
+        <p class="u-kc__feedback" hidden>Your pupils need about twenty minutes. Leave extra following distance in that window.</p>
+      </div>
+
+      <button class="u-btn u-btn--primary u-btn--block" style="margin-top:28px">Continue</button>
+    </div></div>
+  </div>
+
+  <div>
+    <p class="g-cap">Accountability dashboard</p>
+    <div class="g-phone"><div class="screen u-safe">
+      <h2 class="u-heading-medium" style="margin-bottom:24px">Your progress</h2>
+
+      <div style="display:grid;place-items:center;gap:12px;margin-bottom:32px">
+        <div class="u-ring" style="--size:140px" data-u-progress="68" role="progressbar">
+          <span class="u-ring__value">68%</span>
+        </div>
+        <p class="u-paragraph-small" style="color:var(--u-content-tertiary)">
+          11 of 16 safety lessons complete
+        </p>
+      </div>
+
+      <h3 class="u-label-medium" style="margin-bottom:12px">Badges</h3>
+      <div style="display:grid;grid-template-columns:repeat(4,1fr)">
+        <div class="u-achievement"><span class="u-achievement__disc">🛡️</span><span class="u-achievement__name">First week</span></div>
+        <div class="u-achievement"><span class="u-achievement__disc">🌙</span><span class="u-achievement__name">Night pro</span></div>
+        <div class="u-achievement"><span class="u-achievement__disc">🔥</span><span class="u-achievement__name">7 streak</span></div>
+        <div class="u-achievement u-achievement--locked"><span class="u-achievement__disc">🏆</span><span class="u-achievement__name">All clear</span></div>
+      </div>
+
+      <h3 class="u-label-medium" style="margin:28px 0 12px">This week</h3>
+      <div class="u-stack">
+        <div style="display:flex;justify-content:space-between;padding:14px 16px;
+                    background:var(--u-background-secondary);border-radius:8px">
+          <span class="u-label-small">You</span>
+          <span class="u-label-small" style="color:var(--u-program-safety)">1,240 pts</span></div>
+        <div style="display:flex;justify-content:space-between;padding:14px 16px;
+                    background:var(--u-background-primary);border-radius:8px">
+          <span class="u-paragraph-small" style="color:var(--u-content-tertiary)">Top 10% of drivers in Lahore</span>
+          <span class="u-paragraph-small" style="color:var(--u-content-tertiary)">1,500 pts</span></div>
+      </div>
+
+      <button class="u-btn u-btn--secondary u-btn--block" style="margin-top:28px">Resume lesson</button>
+    </div></div>
+  </div>
+
+</div>
+
+<div class="g-specimens">
+<div class="g-card"><h3>Tag — 10 ramps × 3 fills × 4 sizes</h3><div style="display:grid;gap:10px"><div><p style="font:400 10px system-ui;color:#868686;margin-bottom:5px">Solid</p><div style="display:flex;flex-wrap:wrap;gap:5px"><span class="u-tag u-tag--gray">Label</span><span class="u-tag u-tag--red">Label</span><span class="u-tag u-tag--orange">Label</span><span class="u-tag u-tag--yellow">Label</span><span class="u-tag u-tag--lime">Label</span><span class="u-tag u-tag--green">Label</span><span class="u-tag u-tag--teal">Label</span><span class="u-tag u-tag--blue">Label</span><span class="u-tag u-tag--purple">Label</span><span class="u-tag u-tag--magenta">Label</span></div></div><div><p style="font:400 10px system-ui;color:#868686;margin-bottom:5px">Soft</p><div style="display:flex;flex-wrap:wrap;gap:5px"><span class="u-tag u-tag--soft u-tag--gray">Label</span><span class="u-tag u-tag--soft u-tag--red">Label</span><span class="u-tag u-tag--soft u-tag--orange">Label</span><span class="u-tag u-tag--soft u-tag--yellow">Label</span><span class="u-tag u-tag--soft u-tag--lime">Label</span><span class="u-tag u-tag--soft u-tag--green">Label</span><span class="u-tag u-tag--soft u-tag--teal">Label</span><span class="u-tag u-tag--soft u-tag--blue">Label</span><span class="u-tag u-tag--soft u-tag--purple">Label</span><span class="u-tag u-tag--soft u-tag--magenta">Label</span></div></div><div><p style="font:400 10px system-ui;color:#868686;margin-bottom:5px">Outline</p><div style="display:flex;flex-wrap:wrap;gap:5px"><span class="u-tag u-tag--outline u-tag--gray">Label</span><span class="u-tag u-tag--outline u-tag--red">Label</span><span class="u-tag u-tag--outline u-tag--orange">Label</span><span class="u-tag u-tag--outline u-tag--yellow">Label</span><span class="u-tag u-tag--outline u-tag--lime">Label</span><span class="u-tag u-tag--outline u-tag--green">Label</span><span class="u-tag u-tag--outline u-tag--teal">Label</span><span class="u-tag u-tag--outline u-tag--blue">Label</span><span class="u-tag u-tag--outline u-tag--purple">Label</span><span class="u-tag u-tag--outline u-tag--magenta">Label</span></div></div><div><p style="font:400 10px system-ui;color:#868686;margin-bottom:5px">Sizes, dot, dismiss</p><div style="display:flex;flex-wrap:wrap;gap:6px;align-items:center"><span class="u-tag u-tag--xs u-tag--blue">XS</span><span class="u-tag u-tag--sm u-tag--blue">Small</span><span class="u-tag u-tag--blue">Medium</span><span class="u-tag u-tag--lg u-tag--blue">Large</span><span class="u-tag u-tag--soft u-tag--green"><i class="u-tag__dot"></i>Passed</span><span class="u-tag u-tag--soft u-tag--gray">Night<button class="u-tag__x">&times;</button></span></div></div></div></div>
+<div class="g-card"><h3>Tile — enabled / selected / disabled / loading</h3><div style="display:grid;gap:10px"><button class="u-tile"><span class="u-tile__media">🚦</span><span class="u-tile__body"><span class="u-tile__label">Enabled</span><span class="u-tile__sub">Actionable tile</span></span><span class="u-tile__end">›</span></button><button class="u-tile u-tile--selected"><span class="u-tile__media">✓</span><span class="u-tile__body"><span class="u-tile__label">Selected</span><span class="u-tile__sub">2px selected border</span></span></button><div class="u-tile u-tile--disabled"><span class="u-tile__media">🔒</span><span class="u-tile__body"><span class="u-tile__label">Disabled</span><span class="u-tile__sub">Not interactive</span></span></div><div class="u-tile u-tile--loading"><span class="u-tile__media u-skeleton"></span><span class="u-tile__body"><span class="u-skeleton u-skeleton--text" style="width:60%"></span><span class="u-skeleton u-skeleton--text" style="width:40%;margin-top:6px"></span></span></div></div></div>
+<div class="g-card"><h3>Input family</h3><div style="display:grid;gap:14px"><label class="u-field"><span class="u-field__label">Text field</span><input class="u-input" placeholder="Enter your name"></label><div class="u-input-wrap"><span class="u-input-wrap__icon">🔍</span><input class="u-input" placeholder="Search lessons"></div><div class="u-field"><span class="u-field__label">Select</span><div class="u-select"><button class="u-select__trigger" aria-expanded="false"><span class="u-select__value">All topics</span><svg class="u-select__chev" viewBox="0 0 20 20" fill="none"><path d="M5 8l5 5 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button><div class="u-select__list" hidden><button class="u-select__opt" aria-selected="true" data-value="all">All topics</button><button class="u-select__opt" data-value="night">Night driving</button></div></div></div><label class="u-field"><span class="u-field__label">Text area</span><textarea class="u-input" placeholder="Tell us what happened"></textarea></label><label class="u-field"><span class="u-field__label">Error state</span><input class="u-input u-input--error" value="not-an-email"><span class="u-field__hint u-field__hint--error">Enter a valid email.</span></label><label class="u-field"><span class="u-field__label">Disabled</span><input class="u-input" value="Locked" disabled></label></div></div>
+<div class="g-card"><h3>Controls</h3><div style="display:grid;gap:4px"><label class="u-check"><input type="checkbox" checked><span class="u-check__box"></span><span class="u-check__label">Checked</span></label><label class="u-check"><input type="checkbox"><span class="u-check__box"></span><span class="u-check__label">Unchecked</span></label><label class="u-check"><input type="checkbox" disabled><span class="u-check__box"></span><span class="u-check__label">Disabled</span></label><label class="u-check"><input type="radio" name="r" checked><span class="u-check__box u-check__box--radio"></span><span class="u-check__label">Radio on</span></label><label class="u-check"><input type="radio" name="r"><span class="u-check__box u-check__box--radio"></span><span class="u-check__label">Radio off</span></label><label class="u-toggle"><input type="checkbox" checked><span class="u-toggle__track"><span class="u-toggle__thumb"></span></span><span class="u-check__label">Reminders on</span></label><label class="u-toggle"><input type="checkbox"><span class="u-toggle__track"><span class="u-toggle__thumb"></span></span><span class="u-check__label">Reminders off</span></label></div></div>
+<div class="g-card"><h3>Navigation &amp; segmentation</h3><div style="display:grid;gap:14px"><div class="u-seg"><button class="u-seg__btn" aria-selected="true">All</button><button class="u-seg__btn">In progress</button><button class="u-seg__btn">Done</button></div><div class="u-tabs"><button class="u-tab" aria-selected="true">Lessons</button><button class="u-tab">Badges</button><button class="u-tab">Ranking</button><button class="u-tab" disabled>Certificates</button></div><nav class="u-crumbs"><a class="u-crumbs__link" href="#">Safety</a><span class="u-crumbs__sep">/</span><a class="u-crumbs__link" href="#">Night</a><span class="u-crumbs__sep">/</span><a class="u-crumbs__link" aria-current="page" href="#">Lesson 2</a></nav><div class="u-pagination"><button class="u-pagination__btn" disabled>‹</button><button class="u-pagination__btn" aria-current="page">1</button><button class="u-pagination__btn">2</button><button class="u-pagination__btn">3</button><span class="u-pagination__gap">…</span><button class="u-pagination__btn">9</button><button class="u-pagination__btn">›</button></div><div class="u-pages"><button class="u-pages__d" aria-current="true"></button><button class="u-pages__d"></button><button class="u-pages__d"></button><button class="u-pages__d"></button></div></div></div>
+<div class="g-card"><h3>Progress, steps, vertical steps</h3><div style="display:grid;gap:14px"><div class="u-progress"><div class="u-progress__fill" style="--pct:64%"></div></div><div class="u-steps"><i class="u-steps__seg" data-state="done"></i><i class="u-steps__seg" data-state="done"></i><i class="u-steps__seg" data-state="current"></i><i class="u-steps__seg" data-state=""></i><i class="u-steps__seg" data-state=""></i><i class="u-steps__seg" data-state=""></i></div><div class="u-vsteps"><div class="u-vstep" data-state="done"><span class="u-vstep__dot">✓</span><span><b class="u-vstep__label">Distracted driving</b><span class="u-vstep__sub">Completed</span></span></div><div class="u-vstep" data-state="current"><span class="u-vstep__dot">2</span><span><b class="u-vstep__label">Night visibility</b><span class="u-vstep__sub">In progress</span></span></div><div class="u-vstep"><span class="u-vstep__dot">3</span><span><b class="u-vstep__label">Safe pickup</b><span class="u-vstep__sub">Locked</span></span></div></div></div></div>
+<div class="g-card"><h3>Banners</h3><div style="display:grid;gap:8px"><div class="u-banner"><span class="u-banner__icon">ℹ</span><span><b class="u-banner__title">New lessons</b>Two safety lessons were added.</span></div><div class="u-banner u-banner--positive"><span class="u-banner__icon">✓</span><span>Progress saved.</span></div><div class="u-banner u-banner--warning"><span class="u-banner__icon">!</span><span>Your streak ends tonight.</span></div><div class="u-banner u-banner--negative"><span class="u-banner__icon">✕</span><span>Could not load. Retry.</span></div></div></div>
+<div class="g-card"><h3>Menu, message card, snackbar, tooltip</h3><div style="display:grid;gap:14px"><div class="u-menu"><p class="u-menu__group">Lesson</p><button class="u-menu__item">🔖 Save for later</button><button class="u-menu__item">↗ Share</button><div class="u-menu__divider"></div><button class="u-menu__item u-menu__item--negative">Reset progress</button></div><div class="u-msg"><b class="u-msg__title">You are on a 6 day streak</b><span class="u-msg__body">Finish one lesson today to keep it going.</span></div><div class="u-msg u-msg--dark"><b class="u-msg__title">Certificate ready</b><span class="u-msg__body">Download your safety completion record.</span></div><div style="position:relative;height:70px;background:var(--u-background-secondary);border-radius:8px;overflow:hidden"><div class="u-snack u-snack--inline">Progress saved<button class="u-snack__action">Undo</button></div></div><div class="u-tip-anchor" data-open="true" style="margin-top:44px"><span class="u-tag u-tag--soft u-tag--blue">Hot spot</span><span class="u-tip">Tap a highlighted area to learn what it means.</span></div></div></div>
+<div class="g-card"><h3>Stepper, PIN, date, file drop</h3><div style="display:grid;gap:14px"><div class="u-stepper" data-min="1" data-max="9"><button class="u-stepper__btn" data-step="-1" disabled>−</button><span class="u-stepper__value">1</span><button class="u-stepper__btn" data-step="1">+</button></div><div class="u-pin"><input class="u-pin__cell" value="4" maxlength="1"><input class="u-pin__cell" value="8" maxlength="1"><input class="u-pin__cell" maxlength="1"><input class="u-pin__cell" maxlength="1"></div><div class="u-cal u-cal--mobile" data-u-calendar data-value="2026-09-12"></div><div class="u-drop"><span style="font-size:1.5rem;opacity:.5">⬆</span><span class="u-drop__title">Add a photo</span><span class="u-drop__hint">PNG or JPG, up to 5 MB</span></div></div></div>
+<div class="g-card"><h3>Avatars</h3><div style="display:flex;gap:12px;align-items:flex-end;flex-wrap:wrap"><span class="u-avatar u-avatar--xs">SA</span><span class="u-avatar u-avatar--sm">SA</span><span class="u-avatar">SA</span><span class="u-avatar u-avatar--lg">SA<i class="u-avatar__presence"></i></span><span class="u-avatar-group"><span class="u-avatar u-avatar--sm">A</span><span class="u-avatar u-avatar--sm">B</span><span class="u-avatar u-avatar--sm">C</span></span></div></div>
+<div class="g-card"><h3>List</h3><div class="u-list" style="margin:-6px -8px"><p class="u-list-heading">This week</p><button class="u-li"><span class="u-li__art">📘</span><span class="u-li__body"><span class="u-li__title">Night visibility</span><span class="u-li__sub">3 min left</span></span><span class="u-li__end">›</span></button><button class="u-li"><span class="u-li__art">🅿️</span><span class="u-li__body"><span class="u-li__title">Safe pickup zones</span><span class="u-li__sub">Not started</span></span><span class="u-li__end">5 min</span></button></div></div>
+<div class="g-card"><h3>Rating, badge, empty state</h3><div style="display:grid;gap:10px"><div style="display:flex;align-items:center;gap:8px"><span class="u-stars"><svg class="u-stars__s" data-on="true" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.5 7 .9-5 4.9 1.2 7L12 18l-6.2 3.3L7 14.3l-5-4.9 7-.9z"/></svg><svg class="u-stars__s" data-on="true" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.5 7 .9-5 4.9 1.2 7L12 18l-6.2 3.3L7 14.3l-5-4.9 7-.9z"/></svg><svg class="u-stars__s" data-on="true" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.5 7 .9-5 4.9 1.2 7L12 18l-6.2 3.3L7 14.3l-5-4.9 7-.9z"/></svg><svg class="u-stars__s" data-on="true" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.5 7 .9-5 4.9 1.2 7L12 18l-6.2 3.3L7 14.3l-5-4.9 7-.9z"/></svg><svg class="u-stars__s" data-on="false" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.5 7 .9-5 4.9 1.2 7L12 18l-6.2 3.3L7 14.3l-5-4.9 7-.9z"/></svg><span class="u-stars__count">4.0 · 312 drivers</span></span></div><div style="display:flex;gap:10px;align-items:center"><span class="u-badge-anchor"><span style="font-size:1.4rem">🔔</span><span class="u-badge">3</span></span><span class="u-badge u-badge--positive">New</span><span class="u-badge u-badge--accent">2</span><span class="u-badge u-badge--warning">!</span><span class="u-badge u-badge--dot"></span></div><div class="u-empty" style="padding:24px 8px"><span class="u-empty__art">📭</span><span class="u-empty__title">No badges yet</span><span class="u-empty__text">Finish your first lesson to earn one.</span></div></div></div>
+<div class="g-card"><h3>Buttons</h3><div style="display:flex;flex-direction:column;gap:10px;align-items:flex-start"><button class="u-btn u-btn--primary">Primary</button><button class="u-btn u-btn--secondary">Secondary</button><button class="u-btn u-btn--tertiary">Tertiary</button><button class="u-btn u-btn--primary u-btn--pill u-btn--sm">Pill small</button><button class="u-btn u-btn--primary" disabled>Disabled</button></div></div>
+<div class="g-card"><h3>Card</h3><div class="u-card"><div class="u-card__media">🎬</div><div class="u-card__body"><span class="u-card__title">Respectful ridesharing</span><span class="u-card__text">A four part series on handling difficult rides.</span></div><div class="u-card__actions"><button class="u-btn u-btn--primary u-btn--sm">Start</button><button class="u-btn u-btn--tertiary u-btn--sm">Later</button></div></div></div>
+<div class="g-card"><h3>Type scale</h3><div style="display:grid;gap:6px"><span class="u-heading-large">Heading large</span><span class="u-heading-small">Heading small</span><span class="u-label-medium">Label medium</span><span class="u-paragraph-medium">Paragraph medium</span><span class="u-mono-label-medium">Mono label medium</span><span class="u-paragraph-small" style="color:var(--u-content-tertiary)">Paragraph small</span></div></div>
+<div class="g-card"><h3>Semantic colour</h3><div class="g-swatches"><div class="g-sw"><i style="background:var(--u-content-primary)"></i><b>content-primary</b></div><div class="g-sw"><i style="background:var(--u-program-safety)"></i><b>program-safety</b></div><div class="g-sw"><i style="background:var(--u-background-positive)"></i><b>background-positive</b></div><div class="g-sw"><i style="background:var(--u-background-negative)"></i><b>background-negative</b></div><div class="g-sw"><i style="background:var(--u-background-warning)"></i><b>background-warning</b></div><div class="g-sw"><i style="background:var(--u-background-accent)"></i><b>background-accent</b></div><div class="g-sw"><i style="background:var(--u-background-tertiary)"></i><b>background-tertiary</b></div><div class="g-sw"><i style="background:var(--u-content-tertiary)"></i><b>content-tertiary</b></div></div></div>
+<div class="g-card"><h3>Draggable list — drag or arrow keys</h3><div class="u-drag" id="demo-drag"><div class="u-drag__item" data-value="check"><span class="u-drag__index">1</span><svg class="u-drag__grab" viewBox="0 0 24 24" fill="currentColor" tabindex="0" role="button" aria-label="Reorder"><circle cx="9" cy="6" r="1.5"/><circle cx="15" cy="6" r="1.5"/><circle cx="9" cy="12" r="1.5"/><circle cx="15" cy="12" r="1.5"/><circle cx="9" cy="18" r="1.5"/><circle cx="15" cy="18" r="1.5"/></svg><span class="u-drag__label">Check mirrors</span></div><div class="u-drag__item" data-value="signal"><span class="u-drag__index">2</span><svg class="u-drag__grab" viewBox="0 0 24 24" fill="currentColor" tabindex="0" role="button" aria-label="Reorder"><circle cx="9" cy="6" r="1.5"/><circle cx="15" cy="6" r="1.5"/><circle cx="9" cy="12" r="1.5"/><circle cx="15" cy="12" r="1.5"/><circle cx="9" cy="18" r="1.5"/><circle cx="15" cy="18" r="1.5"/></svg><span class="u-drag__label">Signal early</span></div><div class="u-drag__item" data-value="slow"><span class="u-drag__index">3</span><svg class="u-drag__grab" viewBox="0 0 24 24" fill="currentColor" tabindex="0" role="button" aria-label="Reorder"><circle cx="9" cy="6" r="1.5"/><circle cx="15" cy="6" r="1.5"/><circle cx="9" cy="12" r="1.5"/><circle cx="15" cy="12" r="1.5"/><circle cx="9" cy="18" r="1.5"/><circle cx="15" cy="18" r="1.5"/></svg><span class="u-drag__label">Slow before the turn</span></div><div class="u-drag__item" data-value="scan"><span class="u-drag__index">4</span><svg class="u-drag__grab" viewBox="0 0 24 24" fill="currentColor" tabindex="0" role="button" aria-label="Reorder"><circle cx="9" cy="6" r="1.5"/><circle cx="15" cy="6" r="1.5"/><circle cx="9" cy="12" r="1.5"/><circle cx="15" cy="12" r="1.5"/><circle cx="9" cy="18" r="1.5"/><circle cx="15" cy="18" r="1.5"/></svg><span class="u-drag__label">Scan for cyclists</span></div></div><p style="font:400 11px system-ui;color:#868686;margin-top:10px">Drag a handle, or focus one and press the arrow keys.</p></div>
+<div class="g-card"><h3>Slide to confirm</h3><div class="u-slide" id="demo-slide"><div class="u-slide__fill"></div><span class="u-slide__label">Slide to mark complete</span><button class="u-slide__knob">›</button></div><p style="font:400 11px system-ui;color:#868686;margin-top:10px">Releases past 85% to confirm.</p></div>
+<div class="g-card"><h3>Button dock</h3><div style="position:relative;height:150px;background:var(--u-background-secondary);border-radius:10px;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end"><div class="u-dock u-dock--split"><button class="u-btn u-btn--secondary">Back</button><button class="u-btn u-btn--primary">Continue</button></div></div></div>
+<div class="g-card"><h3>Dialog over scrim</h3><div style="position:relative;height:230px;background:var(--u-background-secondary);border-radius:10px;overflow:hidden"><div class="u-scrim u-scrim--inline"></div><div class="u-dialog u-dialog--inline"><p class="u-dialog__title">Reset progress?</p><p class="u-dialog__body">Your streak and points for this course will be cleared.</p><div class="u-dialog__actions u-dialog__actions--split"><button class="u-btn u-btn--secondary">Cancel</button><button class="u-btn u-btn--primary">Reset</button></div></div></div></div>
+<div class="g-card"><h3>Indeterminate, pill, hints, divider</h3><div style="display:grid;gap:14px"><div class="u-progress u-progress--indeterminate"><div class="u-progress__fill"></div></div><div style="display:flex;gap:8px;flex-wrap:wrap"><span class="u-progress-pill" style="--pct:40%"><span>4 of 10</span></span><span class="u-progress-pill" style="--pct:100%"><span>Complete</span></span></div><div style="display:flex;gap:6px;flex-wrap:wrap"><span class="u-hint">Optional</span><span class="u-hint u-hint--accent">New</span><span class="u-hint u-hint--positive">Passed</span><span class="u-hint u-hint--warning">Expires soon</span></div><hr class="u-divider"><div class="u-section-heading" style="padding-top:8px"><span class="u-section-heading__title">This week</span><button class="u-section-heading__action">See all</button></div></div></div>
+<div class="g-card"><h3>Card loading state</h3><div class="u-card u-card--loading"><div class="u-card__media"></div><div class="u-card__body"><span class="u-card__title">&nbsp;</span><span class="u-card__text">&nbsp;</span></div></div></div>
+<div class="g-card"><h3>Select &mdash; Base menu, no OS wheel</h3><div class="u-select"><button class="u-select__trigger" aria-expanded="false"><span class="u-select__value u-select__value--placeholder">Choose a topic</span><svg class="u-select__chev" viewBox="0 0 20 20" fill="none"><path d="M5 8l5 5 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button><div class="u-select__list" hidden><button class="u-select__opt" data-value="night">Night driving</button><button class="u-select__opt" data-value="pickup">Safe pickups</button><button class="u-select__opt" data-value="conflict">De-escalation</button></div></div><p style="font:400 11px system-ui;color:#868686;margin-top:10px">Base menu, not the OS wheel.</p></div>
+<div class="g-card"><h3>Date picker &mdash; custom calendar</h3><div class="u-cal" data-u-calendar data-value="2026-09-11"></div></div>
+<div class="g-card"><h3>Time picker &mdash; columns</h3><div class="u-time"><div class="u-time__col"><button class="u-time__opt">06</button><button class="u-time__opt">07</button><button class="u-time__opt">08</button><button class="u-time__opt" aria-selected="true">09</button><button class="u-time__opt">10</button><button class="u-time__opt">11</button><button class="u-time__opt">12</button></div><div class="u-time__col"><button class="u-time__opt">00</button><button class="u-time__opt">15</button><button class="u-time__opt" aria-selected="true">30</button><button class="u-time__opt">45</button></div><div class="u-time__col"><button class="u-time__opt" aria-selected="true">AM</button><button class="u-time__opt">PM</button></div></div></div>
+<div class="g-card"><h3>Time picker &mdash; pinwheel</h3><div class="u-wheel"><div class="u-wheel__col" aria-label="Hour"><button class="u-wheel__unit" data-value="07">07</button><button class="u-wheel__unit" data-value="08">08</button><button class="u-wheel__unit" aria-selected="true" data-value="09">09</button><button class="u-wheel__unit" data-value="10">10</button><button class="u-wheel__unit" data-value="11">11</button><button class="u-wheel__unit" data-value="12">12</button></div><div class="u-wheel__col" aria-label="Minute"><button class="u-wheel__unit" data-value="00">00</button><button class="u-wheel__unit" data-value="15">15</button><button class="u-wheel__unit" aria-selected="true" data-value="30">30</button><button class="u-wheel__unit" data-value="45">45</button></div></div></div>
+<div class="g-card"><h3>Password &amp; country field</h3><div class="u-field"><span class="u-field__label">Password</span><div class="u-password"><input class="u-input" type="password" value="saferide2026"><button class="u-password__reveal" aria-pressed="false">&#128065;</button></div><div class="u-password-meter" data-score="4"><i class="u-password-meter__seg"></i><i class="u-password-meter__seg"></i><i class="u-password-meter__seg"></i><i class="u-password-meter__seg"></i></div></div><div class="u-country" style="margin-top:14px"><button class="u-country__code"><span class="u-country__flag">&#127477;&#127472;</span>+92</button><input class="u-input" placeholder="300 1234567"></div></div>
+<div class="g-card"><h3>Slider, knob, segmented slider</h3><div class="u-slider"><span class="u-slider__value">7</span><input class="u-slider__input" type="range" min="0" max="10" value="7"><div class="u-slider__scale"><span>Not confident</span><span>Very confident</span></div></div><div class="u-segslider" style="margin-top:14px"><div class="u-segslider__track"><button class="u-segslider__stop" data-filled="true" data-value="1">1</button><button class="u-segslider__stop" data-filled="true" data-value="2">2</button><button class="u-segslider__stop" data-filled="true" data-value="3">3</button><button class="u-segslider__stop" aria-checked="true" data-value="4">4</button><button class="u-segslider__stop" data-value="5">5</button></div><div class="u-segslider__ends"><span>Never</span><span>Always</span></div></div></div>
+<div class="g-card"><h3>Side navigation</h3><div class="u-sidenav" style="background:var(--u-background-primary);border-radius:8px"><p class="u-sidenav__group">Course</p><button class="u-sidenav__item" aria-current="page"><span class="u-sidenav__icon">&#128216;</span>Content</button><button class="u-sidenav__item"><span class="u-sidenav__icon">&#128101;</span>Learners<span class="u-sidenav__end u-hint">248</span></button><button class="u-sidenav__item"><span class="u-sidenav__icon">&#128202;</span>Analytics</button><button class="u-sidenav__item" disabled><span class="u-sidenav__icon">&#128274;</span>Settings</button></div></div>
+<div class="g-card"><h3>Rich text editor</h3><div class="u-rte"><div class="u-rte__bar"><button class="u-rte__btn" aria-pressed="true"><b>B</b></button><button class="u-rte__btn"><i>I</i></button><button class="u-rte__btn"><u>U</u></button><button class="u-rte__btn">H2</button><button class="u-rte__btn">&#8801;</button><button class="u-rte__btn">&#128279;</button></div><div class="u-rte__body" contenteditable="true" data-placeholder="Write the lesson intro">Most night-time incidents happen in the first ten minutes after sunset.</div></div></div>
+<div class="g-card"><h3>Carousel</h3><div class="u-carousel u-carousel--peek" style="margin-inline:0;padding-inline:0"><div class="u-msg"><b class="u-msg__title">Night driving</b><span class="u-msg__body">4 lessons &middot; 12 min</span></div><div class="u-msg u-msg--dark"><b class="u-msg__title">De-escalation</b><span class="u-msg__body">3 lessons &middot; 9 min</span></div><div class="u-msg"><b class="u-msg__title">Safe pickups</b><span class="u-msg__body">5 lessons &middot; 15 min</span></div></div><div class="u-pages" style="margin-top:12px"><button class="u-pages__d" aria-current="true"></button><button class="u-pages__d"></button><button class="u-pages__d"></button></div></div>
+<div class="g-card"><h3>Timed button &amp; menu controls</h3><button class="u-btn u-btn--primary u-btn--block u-timed" style="--timed:6s">Next lesson starts automatically</button><div class="u-menu" style="margin-top:14px"><button class="u-menu__item" role="menuitemcheckbox" aria-checked="true"><span class="u-menu__control"><span class="u-menu__check">&#10003;</span></span>Daily reminder</button><button class="u-menu__item" role="menuitemcheckbox" aria-checked="mixed"><span class="u-menu__control"><span class="u-menu__check"></span></span>Weekly digest</button><button class="u-menu__item u-menu__item--group">Nested group item</button></div></div>
+<div class="g-card"><h3>Card variants &amp; wide tabs</h3><div style="display:grid;gap:12px"><div class="u-card u-card--artwork-trailing"><div class="u-card__media">&#127916;</div><div class="u-card__body"><span class="u-card__title">Artwork trailing</span><span class="u-card__text">Thumbnail on the right.</span></div></div><div class="u-card u-card--artwork-background" style="min-height:130px"><div class="u-card__media" style="background:var(--u-blue-700)"></div><div class="u-card__body"><span class="u-card__title">Artwork background</span><span class="u-card__text">Text over the image.</span></div></div></div><div class="u-tabs u-tabs--wide" style="margin-top:14px"><button class="u-tab" aria-selected="true">Wide</button><button class="u-tab">Even</button><button class="u-tab">Split</button></div></div>
+</div>
+</div>
+
+</body>
+</html>

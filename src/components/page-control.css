@@ -1,0 +1,19 @@
+/* PageControl - carousel dots (162 instances).
+   Drives the themed carousels Meredith liked in Masterclass. */
+.u-pages { display: flex; gap: var(--u-space-8); justify-content: center; align-items: center; }
+.u-pages__d {
+  position: relative;
+  width: 6px; height: 6px; border-radius: 50%; padding: 0; border: none;
+  background: var(--u-background-tertiary);
+  transition: width var(--u-duration-base) var(--u-ease-standard),
+              background var(--u-duration-base) var(--u-ease-standard);
+}
+/* WCAG 2.5.8: the dot reads as 6px but the target is 24px square. */
+.u-pages__d::after {
+  content: ""; position: absolute; top: 50%; left: 50%;
+  width: 24px; height: 24px; transform: translate(-50%, -50%);
+}
+.u-pages__d[aria-current="true"] { width: 20px; border-radius: var(--u-radius-pill);
+                                   background: var(--u-content-primary); }
+.u-pages--inverse .u-pages__d { background: var(--u-overlay-white40); }
+.u-pages--inverse .u-pages__d[aria-current="true"] { background: var(--u-content-inverse-primary); }

@@ -1,0 +1,26 @@
+/* Banner + SystemBanner - inline and full-bleed messaging.
+   Figma: System banner accent / positive / negative / warning */
+.u-banner {
+  display: flex; align-items: flex-start; gap: var(--u-space-12);
+  padding: var(--u-space-12) var(--u-space-16);
+  border-radius: var(--u-radius-sm);
+  background: var(--u-background-accent-light);
+  color: var(--u-content-secondary);
+  font-family: var(--u-type-paragraph-small-family);
+  font-size: var(--u-type-paragraph-small-size);
+  line-height: var(--u-type-paragraph-small-leading);
+}
+.u-banner__icon  { flex: none; font-size: 1rem; line-height: 1.25; color: var(--u-content-accent); }
+.u-banner__title { display: block; margin-bottom: var(--u-space-2);
+                   font-family: var(--u-type-label-small-family);
+                   font-size: var(--u-type-label-small-size);
+                   font-weight: var(--u-type-label-small-weight);
+                   color: var(--u-content-primary); }
+.u-banner--positive { background: var(--u-background-positive-light); }
+.u-banner--positive .u-banner__icon { color: var(--u-content-positive); }
+.u-banner--negative { background: var(--u-background-negative-light); }
+.u-banner--negative .u-banner__icon { color: var(--u-content-negative); }
+.u-banner--warning  { background: var(--u-background-warning-light); }
+.u-banner--warning  .u-banner__icon { color: var(--u-content-warning); }
+/* Full-bleed system banner: square corners, spans the viewport. */
+.u-banner--system { border-radius: 0; margin-inline: calc(var(--u-space-16) * -1); }

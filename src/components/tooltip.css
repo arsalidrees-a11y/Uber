@@ -1,0 +1,27 @@
+/* Tooltip - Meredith asked for roll-overs with pop-ups. On touch there is no
+   hover, so this is toggled by tap via the [data-open] attribute. */
+.u-tip-anchor { position: relative; display: inline-flex; }
+.u-tip {
+  position: absolute; bottom: calc(100% + 8px); left: 50%;
+  transform: translateX(-50%) translateY(4px);
+  z-index: 40; min-width: 160px; max-width: 240px;
+  padding: var(--u-space-8) var(--u-space-12);
+  border-radius: var(--u-radius-sm);
+  background: var(--u-background-inverse-primary);
+  color: var(--u-content-inverse-primary);
+  font-family: var(--u-type-paragraph-x-small-family);
+  font-size: var(--u-type-paragraph-x-small-size);
+  line-height: var(--u-type-paragraph-x-small-leading);
+  box-shadow: var(--u-shadow-shallow-below);
+  opacity: 0; pointer-events: none;
+  transition: opacity var(--u-duration-fast) var(--u-ease-standard),
+              transform var(--u-duration-fast) var(--u-ease-standard);
+}
+.u-tip-anchor[data-open="true"] .u-tip {
+  opacity: 1; transform: translateX(-50%) translateY(0); pointer-events: auto;
+}
+.u-tip::after {
+  content: ""; position: absolute; top: 100%; left: 50%; margin-left: -5px;
+  border: 5px solid transparent;
+  border-top-color: var(--u-background-inverse-primary);
+}

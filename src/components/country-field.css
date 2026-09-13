@@ -1,0 +1,12 @@
+/* CountryField (3 instances) - dial-code select plus number entry. */
+.u-country { display: grid; grid-template-columns: auto 1fr; gap: var(--u-space-8); }
+.u-country__code {
+  display: flex; align-items: center; gap: var(--u-space-8);
+  min-height: 48px; padding: 0 var(--u-space-12);
+  border: none; border-radius: var(--u-radius-sm);
+  background: var(--u-background-secondary); color: var(--u-content-primary);
+  font-family: var(--u-type-paragraph-medium-family);
+  font-size: var(--u-type-paragraph-medium-size);
+  white-space: nowrap;
+}
+.u-country__flag { font-size: 1.1rem; line-height: 1; }

@@ -1,0 +1,22 @@
+/* BadgeTile - earned / locked achievement. */
+.u-achievement {
+  display: grid; justify-items: center; gap: var(--u-space-8);
+  padding: var(--u-space-16) var(--u-space-8); text-align: center;
+}
+.u-achievement__disc {
+  width: 64px; height: 64px; display: grid; place-items: center;
+  border-radius: 50%; font-size: 1.75rem;
+  background: var(--u-background-accent-light);
+  box-shadow: var(--u-shadow-shallow-below);
+}
+.u-achievement__name {
+  font-family: var(--u-type-label-x-small-family);
+  font-size: var(--u-type-label-x-small-size);
+  font-weight: var(--u-type-label-x-small-weight);
+  color: var(--u-content-primary);
+}
+.u-achievement--locked .u-achievement__disc {
+  background: var(--u-background-secondary);
+  box-shadow: none; filter: grayscale(1); opacity: 0.5;
+}
+.u-achievement--locked .u-achievement__name { color: var(--u-content-state-disabled); }

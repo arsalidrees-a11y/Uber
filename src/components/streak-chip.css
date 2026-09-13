@@ -1,0 +1,21 @@
+/* StreakChip - consecutive-day counter. Gamification surface. */
+.u-streak {
+  display: inline-flex; align-items: center; gap: var(--u-space-8);
+  padding: var(--u-space-8) var(--u-space-16);
+  border-radius: var(--u-radius-pill);
+  background: var(--u-background-warning-light);
+  color: var(--u-content-warning);
+  font-family: var(--u-type-label-small-family);
+  font-size: var(--u-type-label-small-size);
+  font-weight: var(--u-type-label-small-weight);
+}
+.u-streak__flame { font-size: 1rem; line-height: 1; }
+.u-streak--active .u-streak__flame {
+  animation: u-flicker 2.4s var(--u-ease-standard) infinite;
+}
+.u-streak--cold { background: var(--u-background-secondary); color: var(--u-content-tertiary); }
+@keyframes u-flicker {
+  0%, 100% { transform: scale(1)    rotate(0deg); }
+  30%      { transform: scale(1.12) rotate(-4deg); }
+  60%      { transform: scale(0.96) rotate(3deg); }
+}

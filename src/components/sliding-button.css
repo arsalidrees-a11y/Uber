@@ -1,0 +1,36 @@
+/* SlidingButton (5 instances) - slide to confirm. Uber uses this wherever a
+   tap would be too easy to trigger by accident. Driven by uber-learn.js. */
+.u-slide {
+  position: relative; overflow: hidden; user-select: none;
+  height: 56px; border-radius: var(--u-radius-pill);
+  background: var(--u-background-secondary);
+  touch-action: pan-y;   /* let vertical scroll through, own horizontal */
+}
+.u-slide__fill {
+  position: absolute; inset: 0; width: var(--slide, 0%);
+  background: var(--u-background-positive);
+  transition: width var(--u-duration-base) var(--u-ease-decelerate);
+}
+.u-slide__label {
+  position: absolute; inset: 0; display: grid; place-items: center;
+  color: var(--u-content-secondary);
+  font-family: var(--u-type-label-medium-family);
+  font-size: var(--u-type-label-medium-size);
+  font-weight: var(--u-type-label-medium-weight);
+  pointer-events: none;
+  transition: opacity var(--u-duration-fast) var(--u-ease-standard);
+}
+.u-slide__knob {
+  position: absolute; top: 4px; left: 4px; width: 48px; height: 48px;
+  border: none; padding: 0; color: var(--u-content-primary);
+  font: inherit;
+  display: grid; place-items: center; border-radius: 50%;
+  background: var(--u-background-primary);
+  box-shadow: var(--u-shadow-shallow-below);
+  transform: translateX(var(--knob, 0px));
+  transition: transform var(--u-duration-base) var(--u-ease-decelerate);
+}
+.u-slide[data-dragging="true"] .u-slide__knob,
+.u-slide[data-dragging="true"] .u-slide__fill { transition: none; }
+.u-slide[data-confirmed="true"] .u-slide__label { opacity: 0; }
+.u-slide[data-confirmed="true"] { background: var(--u-background-positive); }

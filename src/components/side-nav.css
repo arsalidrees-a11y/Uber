@@ -1,0 +1,25 @@
+/* SideNavigationItem (36 instances). Admin and content-team surfaces, which
+   the proposal includes via roles, permissions and training. */
+.u-sidenav { display: grid; gap: var(--u-space-2); padding: var(--u-space-8); }
+.u-sidenav__item {
+  display: flex; align-items: center; gap: var(--u-space-12);
+  width: 100%; min-height: 44px; padding: var(--u-space-8) var(--u-space-12);
+  border: none; background: none; text-align: left;
+  border-radius: var(--u-radius-sm); color: var(--u-content-secondary);
+  font-family: var(--u-type-label-small-family);
+  font-size: var(--u-type-label-small-size);
+  font-weight: var(--u-type-label-small-weight);
+}
+.u-sidenav__item:active { background: var(--u-background-secondary); }
+.u-sidenav__item[aria-current="page"] {
+  background: var(--u-background-secondary); color: var(--u-content-primary);
+}
+.u-sidenav__item[disabled] { color: var(--u-content-state-disabled); pointer-events: none; }
+.u-sidenav__icon { flex: none; width: 20px; height: 20px; display: grid; place-items: center; }
+.u-sidenav__end { margin-left: auto; }
+.u-sidenav__group {
+  padding: var(--u-space-16) var(--u-space-12) var(--u-space-4);
+  font-family: var(--u-type-label-x-small-family);
+  font-size: var(--u-type-label-x-small-size);
+  color: var(--u-content-tertiary); text-transform: uppercase; letter-spacing: .04em;
+}

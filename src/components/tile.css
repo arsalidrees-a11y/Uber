@@ -1,0 +1,57 @@
+/* Tile - selectable content block (380 instances).
+   Modes: actionable | unselected | selected.  States: enabled | disabled | focus | loading.
+   Figma: ❖ Base Components -> Tile (21154:306578) */
+.u-tile {
+  position: relative; display: flex; align-items: flex-start; gap: var(--u-space-12);
+  width: 100%; padding: var(--u-space-16); text-align: left;
+  background: var(--u-background-primary);
+  border: none; border-radius: var(--u-radius-md);
+  box-shadow: inset 0 0 0 1px var(--u-border-opaque);
+  transition: box-shadow var(--u-duration-fast) var(--u-ease-standard),
+              transform   var(--u-duration-fast) var(--u-ease-standard);
+}
+.u-tile:active { transform: scale(0.99); }
+.u-tile:focus-visible { outline: none; box-shadow: inset 0 0 0 2px var(--u-border-accent); }
+
+.u-tile--selected { box-shadow: inset 0 0 0 2px var(--u-border-selected); }
+.u-tile--disabled {
+  box-shadow: inset 0 0 0 1px var(--u-border-state-disabled);
+  background: var(--u-background-state-disabled);
+  pointer-events: none;
+}
+.u-tile--disabled .u-tile__label,
+.u-tile--disabled .u-tile__sub { color: var(--u-content-state-disabled); }
+
+.u-tile__media {
+  flex: none; width: 40px; height: 40px; border-radius: var(--u-radius-xs);
+  background: var(--u-background-tertiary); display: grid; place-items: center;
+}
+.u-tile__body { flex: 1; min-width: 0; }
+.u-tile__label {
+  display: block;
+  font-family: var(--u-type-label-medium-family);
+  font-size: var(--u-type-label-medium-size);
+  font-weight: var(--u-type-label-medium-weight);
+  color: var(--u-content-primary);
+}
+.u-tile__sub {
+  display: block; margin-top: var(--u-space-2);
+  font-family: var(--u-type-paragraph-small-family);
+  font-size: var(--u-type-paragraph-small-size);
+  color: var(--u-content-tertiary);
+}
+.u-tile__end { flex: none; align-self: center; color: var(--u-content-tertiary); }
+
+/* Loading uses a skeleton, matching the Figma "Loading" column. */
+.u-tile--loading { box-shadow: inset 0 0 0 1px var(--u-border-opaque); pointer-events: none; }
+.u-skeleton {
+  border-radius: var(--u-radius-xs);
+  background: linear-gradient(90deg,
+    var(--u-background-secondary) 25%,
+    var(--u-background-tertiary)  37%,
+    var(--u-background-secondary) 63%);
+  background-size: 400% 100%;
+  animation: u-shimmer 1.4s ease-in-out infinite;
+}
+.u-skeleton--text { height: 12px; }
+@keyframes u-shimmer { from { background-position: 100% 50%; } to { background-position: 0 50%; } }

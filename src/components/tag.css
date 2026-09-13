@@ -1,0 +1,53 @@
+/* Tag - the most-used component in the Base file (477 instances).
+   4 sizes x 3 fills x 10 colour ramps, optional dot and dismiss.
+   Figma: ❖ Base Components -> Tag (21911:260997) */
+.u-tag {
+  --tag-solid: var(--u-gray-700);
+  --tag-soft:  var(--u-gray-50);
+  --tag-ink:   var(--u-gray-800);
+
+  display: inline-flex; align-items: center; gap: var(--u-space-4);
+  padding: 0 var(--u-space-8); min-height: 24px;
+  border-radius: var(--u-radius-xs); white-space: nowrap;
+  font-family: var(--u-type-label-small-family);
+  font-size: var(--u-type-label-small-size);
+  font-weight: var(--u-type-label-small-weight);
+  background: var(--tag-solid); color: var(--u-content-on-color);
+}
+
+/* fills */
+.u-tag--soft    { background: var(--tag-soft); color: var(--tag-ink); }
+.u-tag--outline { background: transparent; color: var(--tag-ink);
+                  box-shadow: inset 0 0 0 1px currentColor; }
+.u-tag--minimal { background: transparent; color: var(--tag-ink); padding-inline: 0; }
+
+/* sizes */
+.u-tag--xs { min-height: 16px; padding-inline: var(--u-space-4);
+             font-size: var(--u-type-label-x-small-size); }
+.u-tag--sm { min-height: 20px; }
+.u-tag--lg { min-height: 32px; padding-inline: var(--u-space-12);
+             font-size: var(--u-type-label-medium-size); }
+
+/* colour ramps */
+.u-tag--gray    { --tag-solid: var(--u-gray-700);    --tag-soft: var(--u-gray-50);    --tag-ink: var(--u-gray-800); }
+.u-tag--red     { --tag-solid: var(--u-red-600);     --tag-soft: var(--u-red-50);     --tag-ink: var(--u-red-700); }
+.u-tag--orange  { --tag-solid: var(--u-orange-600);  --tag-soft: var(--u-orange-50);  --tag-ink: var(--u-orange-700); }
+.u-tag--yellow  { --tag-solid: var(--u-yellow-600);  --tag-soft: var(--u-yellow-50);  --tag-ink: var(--u-yellow-700); }
+.u-tag--lime    { --tag-solid: var(--u-lime-600);    --tag-soft: var(--u-lime-50);    --tag-ink: var(--u-lime-700); }
+.u-tag--green   { --tag-solid: var(--u-green-600);   --tag-soft: var(--u-green-50);   --tag-ink: var(--u-green-700); }
+.u-tag--teal    { --tag-solid: var(--u-teal-600);    --tag-soft: var(--u-teal-50);    --tag-ink: var(--u-teal-700); }
+.u-tag--blue    { --tag-solid: var(--u-blue-600);    --tag-soft: var(--u-blue-50);    --tag-ink: var(--u-blue-700); }
+.u-tag--purple  { --tag-solid: var(--u-purple-600);  --tag-soft: var(--u-purple-50);  --tag-ink: var(--u-purple-700); }
+.u-tag--magenta { --tag-solid: var(--u-magenta-600); --tag-soft: var(--u-magenta-50); --tag-ink: var(--u-magenta-700); }
+
+.u-tag__dot { width: 6px; height: 6px; border-radius: 50%; background: currentColor; flex: none; }
+.u-tag__x {
+  display: grid; place-items: center; width: 16px; height: 16px;
+  margin-right: calc(var(--u-space-4) * -1);
+  border: none; background: none; color: inherit;
+  border-radius: 50%; font-size: 11px; line-height: 1; opacity: .7;
+}
+.u-tag__x:active { opacity: 1; background: var(--u-overlay-black8); }
+@media (hover: hover) and (pointer: fine) {
+  .u-tag__x:hover { opacity: 1; background: var(--u-overlay-black8); }
+}

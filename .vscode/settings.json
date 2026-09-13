@@ -1,0 +1,27 @@
+{
+  "//": "Repo defaults. The generated files are read-only by convention: edit the Figma variables or the component source instead.",
+
+  "files.exclude": {
+    "**/node_modules": true,
+    "**/dist": true
+  },
+  "search.exclude": {
+    "**/node_modules": true,
+    "**/dist": true,
+    "**/package-lock.json": true
+  },
+  "files.readonlyInclude": {
+    "src/styles/tokens.css": true,
+    "src/styles/index.css": true,
+    "public/uber-learn.js": true
+  },
+
+  "editor.formatOnSave": false,
+  "css.lint.unknownAtRules": "ignore",
+  "editor.rulers": [80],
+  "files.trimTrailingWhitespace": true,
+  "files.insertFinalNewline": true,
+
+  "emmet.includeLanguages": { "html": "html" },
+  "terminal.integrated.cwd": "${workspaceFolder}"
+}

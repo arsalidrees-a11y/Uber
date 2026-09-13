@@ -1,0 +1,14 @@
+/* HintBadge (4 instances) - small inline count or status next to a label. */
+.u-hint {
+  display: inline-flex; align-items: center; gap: var(--u-space-4);
+  padding: var(--u-space-2) var(--u-space-8);
+  border-radius: var(--u-radius-pill);
+  background: var(--u-background-secondary);
+  color: var(--u-content-secondary);
+  font-family: var(--u-type-label-x-small-family);
+  font-size: var(--u-type-label-x-small-size);
+  font-weight: var(--u-type-label-x-small-weight);
+}
+.u-hint--accent   { background: var(--u-background-accent-light);   color: var(--u-content-accent); }
+.u-hint--positive { background: var(--u-background-positive-light); color: var(--u-content-positive); }
+.u-hint--warning  { background: var(--u-background-warning-light);  color: var(--u-content-warning); }

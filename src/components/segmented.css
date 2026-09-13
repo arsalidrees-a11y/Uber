@@ -1,0 +1,21 @@
+/* SegmentedControl / ButtonGroup. Figma: Button groups (13604:33572) */
+.u-seg {
+  display: inline-flex; padding: 3px; border-radius: var(--u-radius-sm);
+  background: var(--u-background-secondary);
+}
+.u-seg--pill, .u-seg--pill .u-seg__btn { border-radius: var(--u-radius-pill); }
+.u-seg--block { display: flex; width: 100%; }
+.u-seg__btn {
+  flex: 1; min-height: 40px; padding: 0 var(--u-space-16);
+  border: none; background: none; border-radius: var(--u-radius-xs);
+  color: var(--u-content-secondary); white-space: nowrap;
+  font-family: var(--u-type-label-small-family);
+  font-size: var(--u-type-label-small-size);
+  font-weight: var(--u-type-label-small-weight);
+  transition: background var(--u-duration-fast) var(--u-ease-standard),
+              color      var(--u-duration-fast) var(--u-ease-standard);
+}
+.u-seg__btn[aria-selected="true"] {
+  background: var(--u-background-primary); color: var(--u-content-primary);
+  box-shadow: var(--u-shadow-shallow-below);
+}

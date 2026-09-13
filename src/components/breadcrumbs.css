@@ -1,0 +1,7 @@
+/* Breadcrumbs. Figma: Breadcrumbs (20615:358173) */
+.u-crumbs { display: flex; align-items: center; gap: var(--u-space-8);
+            flex-wrap: wrap; font-family: var(--u-type-paragraph-small-family);
+            font-size: var(--u-type-paragraph-small-size); }
+.u-crumbs__link { color: var(--u-content-tertiary); text-decoration: none; }
+.u-crumbs__link[aria-current="page"] { color: var(--u-content-primary); }
+.u-crumbs__sep { color: var(--u-content-tertiary); }

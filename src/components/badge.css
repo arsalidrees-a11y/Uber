@@ -1,0 +1,19 @@
+/* Badge - notification count / status pip.
+   Figma: ❖ Base Components -> Badge (21149:273144) */
+.u-badge {
+  display: inline-grid; place-items: center;
+  min-width: 20px; height: 20px; padding: 0 var(--u-space-4);
+  border-radius: var(--u-radius-pill);
+  background: var(--u-background-negative); color: var(--u-content-on-color);
+  font-family: var(--u-type-label-x-small-family);
+  font-size: var(--u-type-label-x-small-size);
+  font-weight: var(--u-type-label-x-small-weight);
+}
+.u-badge--dot { min-width: 8px; width: 8px; height: 8px; padding: 0; }
+.u-badge--accent   { background: var(--u-background-accent); }
+.u-badge--positive { background: var(--u-background-positive); }
+.u-badge--warning  { background: var(--u-background-warning); color: var(--u-content-primary); }
+.u-badge--neutral  { background: var(--u-background-always-dark); }
+.u-badge-anchor { position: relative; display: inline-flex; }
+.u-badge-anchor > .u-badge { position: absolute; top: -4px; right: -6px;
+                             box-shadow: 0 0 0 2px var(--u-background-primary); }

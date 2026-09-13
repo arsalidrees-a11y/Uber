@@ -1,0 +1,23 @@
+/* SegmentedSlider - Beta (22 instances). A rating or difficulty scale with
+   discrete stops, which a plain slider cannot express. */
+.u-segslider { display: grid; gap: var(--u-space-8); }
+.u-segslider__track { display: flex; gap: var(--u-space-4); }
+.u-segslider__stop {
+  flex: 1; min-height: 44px; padding: 0; border: none; border-radius: var(--u-radius-xs);
+  background: var(--u-background-secondary); color: var(--u-content-tertiary);
+  font-family: var(--u-type-label-small-family);
+  font-size: var(--u-type-label-small-size);
+  font-weight: var(--u-type-label-small-weight);
+  transition: background var(--u-duration-fast) var(--u-ease-standard),
+              color      var(--u-duration-fast) var(--u-ease-standard);
+}
+.u-segslider__stop[aria-checked="true"] {
+  background: var(--u-background-always-dark); color: var(--u-content-on-color);
+}
+.u-segslider__stop[data-filled="true"] { background: var(--u-background-tertiary); }
+.u-segslider__ends {
+  display: flex; justify-content: space-between;
+  font-family: var(--u-type-paragraph-x-small-family);
+  font-size: var(--u-type-paragraph-x-small-size);
+  color: var(--u-content-tertiary);
+}

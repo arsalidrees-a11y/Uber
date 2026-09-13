@@ -1,0 +1,144 @@
+{
+  "_comment": "Figma node -> code component. Check here before building anything new. netNew lists components with NO Base equivalent, invented for this pilot.",
+  "fileKey": "ruYJo9EUuYsyJxacE52B4p",
+  "components": {
+    "u-btn": {
+      "figmaNode": null,
+      "figmaName": "Base / Button",
+      "src": "src/components/button.css",
+      "variants": [
+        "--primary",
+        "--secondary",
+        "--tertiary",
+        "--pill",
+        "--block",
+        "--sm"
+      ],
+      "status": "node id unknown - 3:4200 was wrong, it is the page id"
+    },
+    "u-lesson": {
+      "figmaNode": null,
+      "figmaName": "Uber Learn / LessonCard",
+      "src": "src/components/lesson-card.css",
+      "variants": [
+        "--complete",
+        "--locked"
+      ],
+      "status": "net-new, not yet in Figma"
+    },
+    "u-streak": {
+      "figmaNode": null,
+      "figmaName": "Uber Learn / StreakChip",
+      "src": "src/components/streak-chip.css",
+      "variants": [
+        "--active",
+        "--cold"
+      ],
+      "status": "net-new, not yet in Figma"
+    },
+    "u-ring": {
+      "figmaNode": null,
+      "figmaName": "Uber Learn / ProgressRing",
+      "src": "src/components/progress-ring.css",
+      "variants": [
+        "--complete"
+      ],
+      "status": "net-new, not yet in Figma"
+    },
+    "u-achievement": {
+      "figmaNode": null,
+      "figmaName": "Uber Learn / AchievementTile",
+      "src": "src/components/achievement.css",
+      "variants": [
+        "--locked"
+      ],
+      "status": "net-new, not yet in Figma"
+    },
+    "u-acc": {
+      "figmaNode": null,
+      "figmaName": "Uber Learn / Accordion",
+      "src": "src/components/accordion.css",
+      "variants": [],
+      "status": "net-new, not yet in Figma"
+    },
+    "u-kc": {
+      "figmaNode": null,
+      "figmaName": "Uber Learn / KnowledgeCheck",
+      "src": "src/components/knowledge-check.css",
+      "variants": [
+        "correct",
+        "incorrect"
+      ],
+      "status": "net-new, not yet in Figma"
+    }
+  },
+  "netNew": {
+    "built": {
+      "u-lesson": {
+        "name": "LessonCard",
+        "why": "lesson row with state and a progress rail; Base Tile and List item are both close but neither carries progress",
+        "src": "src/components/lesson-card.css"
+      },
+      "u-streak": {
+        "name": "StreakChip",
+        "why": "consecutive-day counter; no Base equivalent",
+        "src": "src/components/streak-chip.css"
+      },
+      "u-achievement": {
+        "name": "AchievementTile",
+        "why": "earned or locked badge; Base Badge is a notification count, not this",
+        "src": "src/components/achievement.css"
+      },
+      "u-kc": {
+        "name": "KnowledgeCheck",
+        "why": "ungraded retention check with immediate non-punitive feedback; Base has no question component",
+        "src": "src/components/knowledge-check.css"
+      }
+    },
+    "todo": {
+      "u-rank": {
+        "name": "RankingRow",
+        "why": "privacy-safe ranking named in the proposal; must not expose other drivers' identities",
+        "builtOn": "u-li"
+      },
+      "u-points": {
+        "name": "PointsTicker",
+        "why": "animated award when points are earned",
+        "builtOn": "u-streak"
+      },
+      "u-completion": {
+        "name": "CompletionCard",
+        "why": "completion view and certificate, named in the proposal",
+        "builtOn": "u-card"
+      },
+      "u-hotspot": {
+        "name": "HotspotImage",
+        "why": "Meredith asked for matching hot spots and roll-overs with pop-ups",
+        "builtOn": "u-tip"
+      },
+      "u-match": {
+        "name": "MatchingExercise",
+        "why": "drag-to-match activity; Base ships Draggable list, but the exercise composite is new",
+        "builtOn": "u-drag"
+      },
+      "u-video": {
+        "name": "VideoUnit",
+        "why": "video with caption track; captions are in the acceptance criteria",
+        "builtOn": "u-card"
+      }
+    }
+  },
+  "_figmaLibraryState": {
+    "checkedOn": "2026-09-13",
+    "publishedComponents": 4,
+    "note": "The linked Base Gallery community file has only FOUR published components, all named \"Badge=none\". get_code_connect_map returns {} and get_code_connect_suggestions reports \"No published components found\". Node 3:4200 is the PAGE \"Base Components\", not a component. Most of the 3,499 instances are unpublished local components, so there is very little in this file to map against.",
+    "implication": "Real Code Connect needs published components. Either get access to Uber's internal Base library, or publish our own project library first. See _codeConnect below."
+  },
+  "_codeConnect": {
+    "supported": true,
+    "how": "Code Connect DOES support plain HTML and CSS with no React, via framework-agnostic template files using the figma.html / figma.code tags. The @figma/code-connect/html entrypoint ships figma.className([...]), which composes CSS class lists from Figma variants - purpose-built for a u- kit.",
+    "licensing": "Satisfied. Arbisoft is org tier with a Full seat, which is what Code Connect requires.",
+    "warning": "Framework-specific parsers are DEPRECATED as of @figma/code-connect 2.0.1. Template files are the only actively maintained route. Do not follow an older HTML-parser tutorial.",
+    "blockedBy": "Nothing published in the Figma file to connect to. See _figmaLibraryState."
+  }
+}

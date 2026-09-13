@@ -1,0 +1,53 @@
+/* LessonCard - one safety micro-lesson on the learner home / outline.
+   States: default | in-progress | complete | locked */
+.u-lesson {
+  position: relative; display: grid;
+  grid-template-columns: 56px 1fr auto; align-items: center;
+  gap: var(--u-space-16);
+  width: 100%; padding: var(--u-space-16);
+  background: var(--u-background-primary);
+  border-radius: var(--u-radius-md);
+  box-shadow: var(--u-shadow-shallow-below);
+  text-align: left; border: none;
+  transition: transform var(--u-duration-fast) var(--u-ease-standard);
+}
+.u-lesson:active { transform: scale(0.985); }
+
+.u-lesson__media {
+  width: 56px; height: 56px; display: grid; place-items: center;
+  border-radius: var(--u-radius-sm);
+  background: var(--u-background-accent-light);
+  font-size: 1.5rem;
+}
+.u-lesson__title {
+  display: block;
+  font-family: var(--u-type-label-medium-family);
+  font-size: var(--u-type-label-medium-size);
+  font-weight: var(--u-type-label-medium-weight);
+  color: var(--u-content-primary);
+}
+.u-lesson__meta {
+  display: block;
+  margin-top: var(--u-space-4);
+  font-family: var(--u-type-paragraph-small-family);
+  font-size: var(--u-type-paragraph-small-size);
+  color: var(--u-content-tertiary);
+}
+
+.u-lesson--complete .u-lesson__media { background: var(--u-background-positive-light); }
+.u-lesson--locked { box-shadow: none; background: var(--u-background-secondary); }
+.u-lesson--locked .u-lesson__title,
+.u-lesson--locked .u-lesson__meta { color: var(--u-content-state-disabled); }
+.u-lesson--locked .u-lesson__media { background: var(--u-background-tertiary); filter: grayscale(1); }
+
+/* Thin progress rail pinned to the card's lower edge. */
+.u-lesson__rail {
+  position: absolute; left: var(--u-space-16); right: var(--u-space-16); bottom: var(--u-space-8);
+  height: 3px; border-radius: var(--u-radius-pill);
+  background: var(--u-background-tertiary); overflow: hidden;
+}
+.u-lesson__rail::after {
+  content: ""; display: block; height: 100%; width: var(--pct, 0%);
+  border-radius: inherit; background: var(--u-program-safety);
+  transition: width var(--u-duration-slow) var(--u-ease-decelerate);
+}

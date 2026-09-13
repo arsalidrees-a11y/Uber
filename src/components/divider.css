@@ -1,0 +1,22 @@
+/* Divider (10 instances) + Section heading (12 instances). */
+.u-divider { height: 1px; border: none; margin: 0; background: var(--u-border-opaque); }
+.u-divider--module { height: 8px; background: var(--u-background-secondary); }
+.u-divider--inset { margin-left: var(--u-space-16); }
+
+.u-section-heading {
+  display: flex; align-items: baseline; justify-content: space-between;
+  gap: var(--u-space-12); padding: var(--u-space-24) 0 var(--u-space-12);
+}
+.u-section-heading__title {
+  font-family: var(--u-type-heading-x-small-family);
+  font-size: var(--u-type-heading-x-small-size);
+  font-weight: var(--u-type-heading-x-small-weight);
+  color: var(--u-content-primary);
+}
+.u-section-heading__action {
+  border: none; background: none; padding: 0;
+  color: var(--u-content-accent);
+  font-family: var(--u-type-label-small-family);
+  font-size: var(--u-type-label-small-size);
+  font-weight: var(--u-type-label-small-weight);
+}

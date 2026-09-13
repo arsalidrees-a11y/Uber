@@ -1,0 +1,653 @@
+/* ----------------------------------------------------------------------
+ * GENERATED FILE - DO NOT EDIT
+ * Source : Figma — Base Gallery (Community)
+ * Node   : 3:4200 (Base Components)
+ * Pulled : 2026-09-11
+ * Rebuild: npm run tokens
+ * -------------------------------------------------------------------- */
+
+:root {
+  /* --- colour ------------------------------------------------------- */
+  --u-amber-100                    : #FFE4B7;
+  --u-amber-200                    : #FFD5A1;
+  --u-amber-300                    : #FFB749;
+  --u-amber-400                    : #DF9500;
+  --u-amber-50                     : #FFF1E1;
+  --u-amber-500                    : #C46E00;
+  --u-amber-600                    : #A95F03;
+  --u-amber-700                    : #904A07;
+  --u-amber-800                    : #763A00;
+  --u-amber-900                    : #3E2000;
+  --u-background-accent            : #276EF1;
+  --u-background-accent-light      : #EFF4FE;
+  --u-background-always-dark       : #000000;
+  --u-background-always-light      : #FFFFFF;
+  --u-background-inverse-primary   : #000000;
+  --u-background-inverse-secondary : #282828;
+  --u-background-negative          : #DE1135;
+  --u-background-negative-light    : #FFF0EE;
+  --u-background-overlay           : #000000;
+  --u-background-positive          : #0E8345;
+  --u-background-positive-light    : #EAF6ED;
+  --u-background-primary           : #FFFFFF;
+  --u-background-secondary         : #F3F3F3;
+  --u-background-state-disabled    : #F3F3F3;
+  --u-background-tertiary          : #E8E8E8;
+  --u-background-warning           : #F6BC2F;
+  --u-background-warning-light     : #FDF2DC;
+  --u-black                        : #000000;
+  --u-blue-100                     : #DEE9FE;
+  --u-blue-200                     : #CDDEFF;
+  --u-blue-300                     : #A9C9FF;
+  --u-blue-400                     : #6DAAFB;
+  --u-blue-50                      : #EFF4FE;
+  --u-blue-500                     : #068BEE;
+  --u-blue-600                     : #276EF1;
+  --u-blue-700                     : #175BCC;
+  --u-blue-800                     : #1948A3;
+  --u-blue-900                     : #002661;
+  --u-border-accent                : #276EF1;
+  --u-border-accent-light          : #CDDEFF;
+  --u-border-inverse-opaque        : #4B4B4B;
+  --u-border-inverse-selected      : #FFFFFF;
+  --u-border-negative              : #DE1135;
+  --u-border-opaque                : #E8E8E8;
+  --u-border-positive              : #0E8345;
+  --u-border-selected              : #000000;
+  --u-border-state-disabled        : #F3F3F3;
+  --u-border-transparent           : #000000;
+  --u-border-warning               : #9F6402;
+  --u-content-accent               : #276EF1;
+  --u-content-inverse-primary      : #FFFFFF;
+  --u-content-inverse-secondary    : #DDDDDD;
+  --u-content-inverse-tertiary     : #A6A6A6;
+  --u-content-negative             : #DE1135;
+  --u-content-on-color             : #FFFFFF;
+  --u-content-on-color-inverse     : #000000;
+  --u-content-positive             : #0E8345;
+  --u-content-primary              : #000000;
+  --u-content-secondary            : #4B4B4B;
+  --u-content-state-disabled       : #A6A6A6;
+  --u-content-tertiary             : #5E5E5E;
+  --u-content-warning              : #9F6402;
+  --u-gray-100                     : #E8E8E8;
+  --u-gray-200                     : #DDDDDD;
+  --u-gray-300                     : #BBBBBB;
+  --u-gray-400                     : #A6A6A6;
+  --u-gray-50                      : #F3F3F3;
+  --u-gray-500                     : #868686;
+  --u-gray-600                     : #727272;
+  --u-gray-700                     : #5E5E5E;
+  --u-gray-800                     : #4B4B4B;
+  --u-gray-900                     : #282828;
+  --u-green-100                    : #D3EFDA;
+  --u-green-200                    : #B1EAC2;
+  --u-green-300                    : #7FD99A;
+  --u-green-400                    : #06C167;
+  --u-green-50                     : #EAF6ED;
+  --u-green-500                    : #009A51;
+  --u-green-600                    : #0E8345;
+  --u-green-700                    : #166C3B;
+  --u-green-800                    : #0D572D;
+  --u-green-900                    : #002F14;
+  --u-lime-100                     : #DEEEC6;
+  --u-lime-200                     : #CAE6A0;
+  --u-lime-300                     : #A6D467;
+  --u-lime-400                     : #77B71C;
+  --u-lime-50                      : #EEF6E3;
+  --u-lime-500                     : #5B9500;
+  --u-lime-600                     : #4F7F06;
+  --u-lime-700                     : #3F6900;
+  --u-lime-800                     : #365310;
+  --u-lime-900                     : #1B2D00;
+  --u-magenta-100                  : #FEDFF3;
+  --u-magenta-200                  : #FFCEF2;
+  --u-magenta-300                  : #FFACE5;
+  --u-magenta-400                  : #F877D2;
+  --u-magenta-50                   : #FEEFF9;
+  --u-magenta-500                  : #E142BC;
+  --u-magenta-600                  : #CA26A5;
+  --u-magenta-700                  : #A91A90;
+  --u-magenta-800                  : #891869;
+  --u-magenta-900                  : #50003F;
+  --u-orange-100                   : #FEE2D4;
+  --u-orange-200                   : #FFD3BC;
+  --u-orange-300                   : #FFB48C;
+  --u-orange-400                   : #FC823A;
+  --u-orange-50                    : #FFF0E9;
+  --u-orange-500                   : #E65300;
+  --u-orange-600                   : #C54600;
+  --u-orange-700                   : #A33B04;
+  --u-orange-800                   : #823006;
+  --u-orange-900                   : #461A00;
+  --u-overlay-black4               : rgb(0 0 0 / 0.0392);
+  --u-overlay-black48              : rgb(0 0 0 / 0.4784);
+  --u-overlay-black78              : rgb(0 0 0 / 0.7804);
+  --u-overlay-black8               : rgb(0 0 0 / 0.0784);
+  --u-overlay-white18              : rgb(255 255 255 / 0.1804);
+  --u-overlay-white40              : rgb(255 255 255 / 0.4);
+  --u-primary-black                : #000000;
+  --u-program-eats                 : #0E8345;
+  --u-program-freight              : #0E1FC1;
+  --u-program-membership           : #9F6402;
+  --u-program-rewards-tier2        : #FFC043;
+  --u-program-rewards-tier3        : #8FA3AD;
+  --u-program-rewards-tier4        : #000000;
+  --u-program-safety               : #276EF1;
+  --u-purple-100                   : #F2E3FF;
+  --u-purple-200                   : #EBD5FF;
+  --u-purple-300                   : #DDB9FF;
+  --u-purple-400                   : #C490F9;
+  --u-purple-50                    : #F9F1FF;
+  --u-purple-500                   : #A964F7;
+  --u-purple-600                   : #944DE7;
+  --u-purple-700                   : #7C3EC3;
+  --u-purple-800                   : #633495;
+  --u-purple-900                   : #3A1659;
+  --u-red-100                      : #FFE1DE;
+  --u-red-200                      : #FFD2CD;
+  --u-red-300                      : #FFB2AB;
+  --u-red-400                      : #FC7F79;
+  --u-red-50                       : #FFF0EE;
+  --u-red-500                      : #F83446;
+  --u-red-600                      : #DE1135;
+  --u-red-700                      : #BB032A;
+  --u-red-800                      : #950F22;
+  --u-red-900                      : #520810;
+  --u-teal-100                     : #CDEEF3;
+  --u-teal-200                     : #B0E7EF;
+  --u-teal-300                     : #77D5E3;
+  --u-teal-400                     : #01B8CA;
+  --u-teal-50                      : #E2F8FB;
+  --u-teal-500                     : #0095A4;
+  --u-teal-600                     : #007F8C;
+  --u-teal-700                     : #016974;
+  --u-teal-800                     : #1A535A;
+  --u-teal-900                     : #002D33;
+  --u-white                        : #FFFFFF;
+  --u-yellow-100                   : #FBE5B6;
+  --u-yellow-200                   : #FFD688;
+  --u-yellow-300                   : #F6BC2F;
+  --u-yellow-400                   : #D79900;
+  --u-yellow-50                    : #FDF2DC;
+  --u-yellow-500                   : #B97502;
+  --u-yellow-600                   : #9F6402;
+  --u-yellow-700                   : #845201;
+  --u-yellow-800                   : #6B4100;
+  --u-yellow-900                   : #392300;
+
+  /* --- elevation ---------------------------------------------------- */
+  --u-shadow-shallow-above: 0px -4px 16px 0px rgb(0 0 0 / 0.1216);
+  --u-shadow-shallow-below: 0px 4px 16px 0px rgb(0 0 0 / 0.1216);
+  --u-shadow-deep-below: 0px 16px 48px 0px rgb(0 0 0 / 0.2196);
+
+  /* --- type --------------------------------------------------------- */
+  --u-type-display-large-family: "Uber Move", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --u-type-display-large-size: 6rem;
+  --u-type-display-large-weight: 700;
+  --u-type-display-large-leading: 1.1667;
+  --u-type-display-large-tracking: 0px;
+  --u-type-display-medium-family: "Uber Move", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --u-type-display-medium-size: 3.25rem;
+  --u-type-display-medium-weight: 700;
+  --u-type-display-medium-leading: 1.2308;
+  --u-type-display-medium-tracking: 0px;
+  --u-type-display-small-family: "Uber Move", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --u-type-display-small-size: 2.75rem;
+  --u-type-display-small-weight: 700;
+  --u-type-display-small-leading: 1.1818;
+  --u-type-display-small-tracking: 0px;
+  --u-type-display-x-small-family: "Uber Move", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --u-type-display-x-small-size: 2.25rem;
+  --u-type-display-x-small-weight: 700;
+  --u-type-display-x-small-leading: 1.2222;
+  --u-type-display-x-small-tracking: 0px;
+  --u-type-heading-large-family: "Uber Move", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --u-type-heading-large-size: 2rem;
+  --u-type-heading-large-weight: 700;
+  --u-type-heading-large-leading: 1.25;
+  --u-type-heading-large-tracking: 0px;
+  --u-type-heading-medium-family: "Uber Move", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --u-type-heading-medium-size: 1.75rem;
+  --u-type-heading-medium-weight: 700;
+  --u-type-heading-medium-leading: 1.2857;
+  --u-type-heading-medium-tracking: 0px;
+  --u-type-heading-small-family: "Uber Move", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --u-type-heading-small-size: 1.5rem;
+  --u-type-heading-small-weight: 700;
+  --u-type-heading-small-leading: 1.3333;
+  --u-type-heading-small-tracking: 0px;
+  --u-type-heading-x-large-family: "Uber Move", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --u-type-heading-x-large-size: 2.25rem;
+  --u-type-heading-x-large-weight: 700;
+  --u-type-heading-x-large-leading: 1.2222;
+  --u-type-heading-x-large-tracking: 0px;
+  --u-type-heading-x-small-family: "Uber Move", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --u-type-heading-x-small-size: 1.25rem;
+  --u-type-heading-x-small-weight: 700;
+  --u-type-heading-x-small-leading: 1.4;
+  --u-type-heading-x-small-tracking: 0.25px;
+  --u-type-heading-xx-large-family: "Uber Move", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --u-type-heading-xx-large-size: 2.5rem;
+  --u-type-heading-xx-large-weight: 700;
+  --u-type-heading-xx-large-leading: 1.3;
+  --u-type-heading-xx-large-tracking: 0px;
+  --u-type-label-large-family: "Uber Move Text", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --u-type-label-large-size: 1.125rem;
+  --u-type-label-large-weight: 500;
+  --u-type-label-large-leading: 1.3333;
+  --u-type-label-large-tracking: 0px;
+  --u-type-label-medium-family: "Uber Move Text", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --u-type-label-medium-size: 1rem;
+  --u-type-label-medium-weight: 500;
+  --u-type-label-medium-leading: 1.25;
+  --u-type-label-medium-tracking: 0px;
+  --u-type-label-small-family: "Uber Move Text", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --u-type-label-small-size: 0.875rem;
+  --u-type-label-small-weight: 500;
+  --u-type-label-small-leading: 1.1429;
+  --u-type-label-small-tracking: 0px;
+  --u-type-label-x-small-family: "Uber Move Text", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --u-type-label-x-small-size: 0.75rem;
+  --u-type-label-x-small-weight: 500;
+  --u-type-label-x-small-leading: 1.3333;
+  --u-type-label-x-small-tracking: 0px;
+  --u-type-mono-display-large-family: "Uber Move Mono", ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+  --u-type-mono-display-large-size: 6rem;
+  --u-type-mono-display-large-weight: 568;
+  --u-type-mono-display-large-leading: 1.1667;
+  --u-type-mono-display-large-tracking: 0px;
+  --u-type-mono-display-medium-family: "Uber Move Mono", ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+  --u-type-mono-display-medium-size: 3.25rem;
+  --u-type-mono-display-medium-weight: 500;
+  --u-type-mono-display-medium-leading: 1.2308;
+  --u-type-mono-display-medium-tracking: 0px;
+  --u-type-mono-display-small-family: "Uber Move Mono", ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+  --u-type-mono-display-small-size: 2.75rem;
+  --u-type-mono-display-small-weight: 500;
+  --u-type-mono-display-small-leading: 1.1818;
+  --u-type-mono-display-small-tracking: 0px;
+  --u-type-mono-display-x-small-family: "Uber Move Mono", ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+  --u-type-mono-display-x-small-size: 2.25rem;
+  --u-type-mono-display-x-small-weight: 500;
+  --u-type-mono-display-x-small-leading: 1.2222;
+  --u-type-mono-display-x-small-tracking: 0px;
+  --u-type-mono-heading-large-family: "Uber Move Mono", ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+  --u-type-mono-heading-large-size: 2rem;
+  --u-type-mono-heading-large-weight: 568;
+  --u-type-mono-heading-large-leading: 1.25;
+  --u-type-mono-heading-large-tracking: 0px;
+  --u-type-mono-heading-medium-family: "Uber Move Mono", ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+  --u-type-mono-heading-medium-size: 1.75rem;
+  --u-type-mono-heading-medium-weight: 568;
+  --u-type-mono-heading-medium-leading: 1.2857;
+  --u-type-mono-heading-medium-tracking: 0px;
+  --u-type-mono-heading-small-family: "Uber Move Mono", ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+  --u-type-mono-heading-small-size: 1.5rem;
+  --u-type-mono-heading-small-weight: 568;
+  --u-type-mono-heading-small-leading: 1.3333;
+  --u-type-mono-heading-small-tracking: 0px;
+  --u-type-mono-heading-x-large-family: "Uber Move Mono", ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+  --u-type-mono-heading-x-large-size: 2.25rem;
+  --u-type-mono-heading-x-large-weight: 568;
+  --u-type-mono-heading-x-large-leading: 1.2222;
+  --u-type-mono-heading-x-large-tracking: 0px;
+  --u-type-mono-heading-x-small-family: "Uber Move Mono", ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+  --u-type-mono-heading-x-small-size: 1.25rem;
+  --u-type-mono-heading-x-small-weight: 568;
+  --u-type-mono-heading-x-small-leading: 1.4;
+  --u-type-mono-heading-x-small-tracking: 0px;
+  --u-type-mono-heading-xx-large-family: "Uber Move Mono", ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+  --u-type-mono-heading-xx-large-size: 2.5rem;
+  --u-type-mono-heading-xx-large-weight: 568;
+  --u-type-mono-heading-xx-large-leading: 1.3;
+  --u-type-mono-heading-xx-large-tracking: 0px;
+  --u-type-mono-label-large-family: "Uber Move Mono", ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+  --u-type-mono-label-large-size: 1.125rem;
+  --u-type-mono-label-large-weight: 568;
+  --u-type-mono-label-large-leading: 1.3333;
+  --u-type-mono-label-large-tracking: 0px;
+  --u-type-mono-label-medium-family: "Uber Move Mono", ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+  --u-type-mono-label-medium-size: 1rem;
+  --u-type-mono-label-medium-weight: 568;
+  --u-type-mono-label-medium-leading: 1.25;
+  --u-type-mono-label-medium-tracking: 0px;
+  --u-type-mono-label-small-family: "Uber Move Mono", ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+  --u-type-mono-label-small-size: 0.875rem;
+  --u-type-mono-label-small-weight: 568;
+  --u-type-mono-label-small-leading: 1.1429;
+  --u-type-mono-label-small-tracking: 0px;
+  --u-type-mono-label-x-small-family: "Uber Move Mono", ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+  --u-type-mono-label-x-small-size: 0.75rem;
+  --u-type-mono-label-x-small-weight: 568;
+  --u-type-mono-label-x-small-leading: 1.3333;
+  --u-type-mono-label-x-small-tracking: 0px;
+  --u-type-mono-paragraph-large-family: "Uber Move Mono", ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+  --u-type-mono-paragraph-large-size: 1.125rem;
+  --u-type-mono-paragraph-large-weight: 432;
+  --u-type-mono-paragraph-large-leading: 1.5556;
+  --u-type-mono-paragraph-large-tracking: 0px;
+  --u-type-mono-paragraph-medium-family: "Uber Move Mono", ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+  --u-type-mono-paragraph-medium-size: 1rem;
+  --u-type-mono-paragraph-medium-weight: 432;
+  --u-type-mono-paragraph-medium-leading: 1.5;
+  --u-type-mono-paragraph-medium-tracking: 0px;
+  --u-type-mono-paragraph-small-family: "Uber Move Mono", ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+  --u-type-mono-paragraph-small-size: 0.875rem;
+  --u-type-mono-paragraph-small-weight: 432;
+  --u-type-mono-paragraph-small-leading: 1.4286;
+  --u-type-mono-paragraph-small-tracking: 0px;
+  --u-type-mono-paragraph-x-small-family: "Uber Move Mono", ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+  --u-type-mono-paragraph-x-small-size: 0.75rem;
+  --u-type-mono-paragraph-x-small-weight: 432;
+  --u-type-mono-paragraph-x-small-leading: 1.6667;
+  --u-type-mono-paragraph-x-small-tracking: 0px;
+  --u-type-paragraph-large-family: "Uber Move Text", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --u-type-paragraph-large-size: 1.125rem;
+  --u-type-paragraph-large-weight: 400;
+  --u-type-paragraph-large-leading: 1.5556;
+  --u-type-paragraph-large-tracking: 0px;
+  --u-type-paragraph-medium-family: "Uber Move Text", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --u-type-paragraph-medium-size: 1rem;
+  --u-type-paragraph-medium-weight: 400;
+  --u-type-paragraph-medium-leading: 1.5;
+  --u-type-paragraph-medium-tracking: 0px;
+  --u-type-paragraph-small-family: "Uber Move Text", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --u-type-paragraph-small-size: 0.875rem;
+  --u-type-paragraph-small-weight: 400;
+  --u-type-paragraph-small-leading: 1.4286;
+  --u-type-paragraph-small-tracking: 0px;
+  --u-type-paragraph-x-small-family: "Uber Move Text", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --u-type-paragraph-x-small-size: 0.75rem;
+  --u-type-paragraph-x-small-weight: 400;
+  --u-type-paragraph-x-small-leading: 1.6667;
+  --u-type-paragraph-x-small-tracking: 0px;
+
+  /* --- numeric variables straight from Figma ------------------------ */
+  /* none in this pull */
+
+  /* --- spacing (Base 4pt grid) -------------------------------------- */
+  --u-space-0: 0rem;
+  --u-space-2: 0.125rem;
+  --u-space-4: 0.25rem;
+  --u-space-8: 0.5rem;
+  --u-space-12: 0.75rem;
+  --u-space-16: 1rem;
+  --u-space-20: 1.25rem;
+  --u-space-24: 1.5rem;
+  --u-space-32: 2rem;
+  --u-space-40: 2.5rem;
+  --u-space-48: 3rem;
+  --u-space-64: 4rem;
+  --u-space-80: 5rem;
+
+  /* --- radius ------------------------------------------------------- */
+  --u-radius-none: 0;
+  --u-radius-xs: 0.25rem;
+  --u-radius-sm: 0.5rem;
+  --u-radius-md: 0.75rem;
+  --u-radius-lg: 1rem;
+  --u-radius-xl: 1.5rem;
+  --u-radius-pill: 999px;
+
+  /* --- motion ------------------------------------------------------- */
+  --u-ease-standard: cubic-bezier(0.4, 0, 0.2, 1);
+  --u-ease-decelerate: cubic-bezier(0, 0, 0.2, 1);
+  --u-duration-fast: 120ms;
+  --u-duration-base: 200ms;
+  --u-duration-slow: 320ms;
+}
+
+/* Typography utilities - one class per Figma text style. */
+.u-display-large {
+  font-family: var(--u-type-display-large-family);
+  font-size: var(--u-type-display-large-size);
+  font-weight: var(--u-type-display-large-weight);
+  line-height: var(--u-type-display-large-leading);
+  letter-spacing: var(--u-type-display-large-tracking);
+}
+.u-display-medium {
+  font-family: var(--u-type-display-medium-family);
+  font-size: var(--u-type-display-medium-size);
+  font-weight: var(--u-type-display-medium-weight);
+  line-height: var(--u-type-display-medium-leading);
+  letter-spacing: var(--u-type-display-medium-tracking);
+}
+.u-display-small {
+  font-family: var(--u-type-display-small-family);
+  font-size: var(--u-type-display-small-size);
+  font-weight: var(--u-type-display-small-weight);
+  line-height: var(--u-type-display-small-leading);
+  letter-spacing: var(--u-type-display-small-tracking);
+}
+.u-display-x-small {
+  font-family: var(--u-type-display-x-small-family);
+  font-size: var(--u-type-display-x-small-size);
+  font-weight: var(--u-type-display-x-small-weight);
+  line-height: var(--u-type-display-x-small-leading);
+  letter-spacing: var(--u-type-display-x-small-tracking);
+}
+.u-heading-large {
+  font-family: var(--u-type-heading-large-family);
+  font-size: var(--u-type-heading-large-size);
+  font-weight: var(--u-type-heading-large-weight);
+  line-height: var(--u-type-heading-large-leading);
+  letter-spacing: var(--u-type-heading-large-tracking);
+}
+.u-heading-medium {
+  font-family: var(--u-type-heading-medium-family);
+  font-size: var(--u-type-heading-medium-size);
+  font-weight: var(--u-type-heading-medium-weight);
+  line-height: var(--u-type-heading-medium-leading);
+  letter-spacing: var(--u-type-heading-medium-tracking);
+}
+.u-heading-small {
+  font-family: var(--u-type-heading-small-family);
+  font-size: var(--u-type-heading-small-size);
+  font-weight: var(--u-type-heading-small-weight);
+  line-height: var(--u-type-heading-small-leading);
+  letter-spacing: var(--u-type-heading-small-tracking);
+}
+.u-heading-x-large {
+  font-family: var(--u-type-heading-x-large-family);
+  font-size: var(--u-type-heading-x-large-size);
+  font-weight: var(--u-type-heading-x-large-weight);
+  line-height: var(--u-type-heading-x-large-leading);
+  letter-spacing: var(--u-type-heading-x-large-tracking);
+}
+.u-heading-x-small {
+  font-family: var(--u-type-heading-x-small-family);
+  font-size: var(--u-type-heading-x-small-size);
+  font-weight: var(--u-type-heading-x-small-weight);
+  line-height: var(--u-type-heading-x-small-leading);
+  letter-spacing: var(--u-type-heading-x-small-tracking);
+}
+.u-heading-xx-large {
+  font-family: var(--u-type-heading-xx-large-family);
+  font-size: var(--u-type-heading-xx-large-size);
+  font-weight: var(--u-type-heading-xx-large-weight);
+  line-height: var(--u-type-heading-xx-large-leading);
+  letter-spacing: var(--u-type-heading-xx-large-tracking);
+}
+.u-label-large {
+  font-family: var(--u-type-label-large-family);
+  font-size: var(--u-type-label-large-size);
+  font-weight: var(--u-type-label-large-weight);
+  line-height: var(--u-type-label-large-leading);
+  letter-spacing: var(--u-type-label-large-tracking);
+}
+.u-label-medium {
+  font-family: var(--u-type-label-medium-family);
+  font-size: var(--u-type-label-medium-size);
+  font-weight: var(--u-type-label-medium-weight);
+  line-height: var(--u-type-label-medium-leading);
+  letter-spacing: var(--u-type-label-medium-tracking);
+}
+.u-label-small {
+  font-family: var(--u-type-label-small-family);
+  font-size: var(--u-type-label-small-size);
+  font-weight: var(--u-type-label-small-weight);
+  line-height: var(--u-type-label-small-leading);
+  letter-spacing: var(--u-type-label-small-tracking);
+}
+.u-label-x-small {
+  font-family: var(--u-type-label-x-small-family);
+  font-size: var(--u-type-label-x-small-size);
+  font-weight: var(--u-type-label-x-small-weight);
+  line-height: var(--u-type-label-x-small-leading);
+  letter-spacing: var(--u-type-label-x-small-tracking);
+}
+.u-mono-display-large {
+  font-family: var(--u-type-mono-display-large-family);
+  font-size: var(--u-type-mono-display-large-size);
+  font-weight: var(--u-type-mono-display-large-weight);
+  line-height: var(--u-type-mono-display-large-leading);
+  letter-spacing: var(--u-type-mono-display-large-tracking);
+}
+.u-mono-display-medium {
+  font-family: var(--u-type-mono-display-medium-family);
+  font-size: var(--u-type-mono-display-medium-size);
+  font-weight: var(--u-type-mono-display-medium-weight);
+  line-height: var(--u-type-mono-display-medium-leading);
+  letter-spacing: var(--u-type-mono-display-medium-tracking);
+}
+.u-mono-display-small {
+  font-family: var(--u-type-mono-display-small-family);
+  font-size: var(--u-type-mono-display-small-size);
+  font-weight: var(--u-type-mono-display-small-weight);
+  line-height: var(--u-type-mono-display-small-leading);
+  letter-spacing: var(--u-type-mono-display-small-tracking);
+}
+.u-mono-display-x-small {
+  font-family: var(--u-type-mono-display-x-small-family);
+  font-size: var(--u-type-mono-display-x-small-size);
+  font-weight: var(--u-type-mono-display-x-small-weight);
+  line-height: var(--u-type-mono-display-x-small-leading);
+  letter-spacing: var(--u-type-mono-display-x-small-tracking);
+}
+.u-mono-heading-large {
+  font-family: var(--u-type-mono-heading-large-family);
+  font-size: var(--u-type-mono-heading-large-size);
+  font-weight: var(--u-type-mono-heading-large-weight);
+  line-height: var(--u-type-mono-heading-large-leading);
+  letter-spacing: var(--u-type-mono-heading-large-tracking);
+}
+.u-mono-heading-medium {
+  font-family: var(--u-type-mono-heading-medium-family);
+  font-size: var(--u-type-mono-heading-medium-size);
+  font-weight: var(--u-type-mono-heading-medium-weight);
+  line-height: var(--u-type-mono-heading-medium-leading);
+  letter-spacing: var(--u-type-mono-heading-medium-tracking);
+}
+.u-mono-heading-small {
+  font-family: var(--u-type-mono-heading-small-family);
+  font-size: var(--u-type-mono-heading-small-size);
+  font-weight: var(--u-type-mono-heading-small-weight);
+  line-height: var(--u-type-mono-heading-small-leading);
+  letter-spacing: var(--u-type-mono-heading-small-tracking);
+}
+.u-mono-heading-x-large {
+  font-family: var(--u-type-mono-heading-x-large-family);
+  font-size: var(--u-type-mono-heading-x-large-size);
+  font-weight: var(--u-type-mono-heading-x-large-weight);
+  line-height: var(--u-type-mono-heading-x-large-leading);
+  letter-spacing: var(--u-type-mono-heading-x-large-tracking);
+}
+.u-mono-heading-x-small {
+  font-family: var(--u-type-mono-heading-x-small-family);
+  font-size: var(--u-type-mono-heading-x-small-size);
+  font-weight: var(--u-type-mono-heading-x-small-weight);
+  line-height: var(--u-type-mono-heading-x-small-leading);
+  letter-spacing: var(--u-type-mono-heading-x-small-tracking);
+}
+.u-mono-heading-xx-large {
+  font-family: var(--u-type-mono-heading-xx-large-family);
+  font-size: var(--u-type-mono-heading-xx-large-size);
+  font-weight: var(--u-type-mono-heading-xx-large-weight);
+  line-height: var(--u-type-mono-heading-xx-large-leading);
+  letter-spacing: var(--u-type-mono-heading-xx-large-tracking);
+}
+.u-mono-label-large {
+  font-family: var(--u-type-mono-label-large-family);
+  font-size: var(--u-type-mono-label-large-size);
+  font-weight: var(--u-type-mono-label-large-weight);
+  line-height: var(--u-type-mono-label-large-leading);
+  letter-spacing: var(--u-type-mono-label-large-tracking);
+}
+.u-mono-label-medium {
+  font-family: var(--u-type-mono-label-medium-family);
+  font-size: var(--u-type-mono-label-medium-size);
+  font-weight: var(--u-type-mono-label-medium-weight);
+  line-height: var(--u-type-mono-label-medium-leading);
+  letter-spacing: var(--u-type-mono-label-medium-tracking);
+}
+.u-mono-label-small {
+  font-family: var(--u-type-mono-label-small-family);
+  font-size: var(--u-type-mono-label-small-size);
+  font-weight: var(--u-type-mono-label-small-weight);
+  line-height: var(--u-type-mono-label-small-leading);
+  letter-spacing: var(--u-type-mono-label-small-tracking);
+}
+.u-mono-label-x-small {
+  font-family: var(--u-type-mono-label-x-small-family);
+  font-size: var(--u-type-mono-label-x-small-size);
+  font-weight: var(--u-type-mono-label-x-small-weight);
+  line-height: var(--u-type-mono-label-x-small-leading);
+  letter-spacing: var(--u-type-mono-label-x-small-tracking);
+}
+.u-mono-paragraph-large {
+  font-family: var(--u-type-mono-paragraph-large-family);
+  font-size: var(--u-type-mono-paragraph-large-size);
+  font-weight: var(--u-type-mono-paragraph-large-weight);
+  line-height: var(--u-type-mono-paragraph-large-leading);
+  letter-spacing: var(--u-type-mono-paragraph-large-tracking);
+}
+.u-mono-paragraph-medium {
+  font-family: var(--u-type-mono-paragraph-medium-family);
+  font-size: var(--u-type-mono-paragraph-medium-size);
+  font-weight: var(--u-type-mono-paragraph-medium-weight);
+  line-height: var(--u-type-mono-paragraph-medium-leading);
+  letter-spacing: var(--u-type-mono-paragraph-medium-tracking);
+}
+.u-mono-paragraph-small {
+  font-family: var(--u-type-mono-paragraph-small-family);
+  font-size: var(--u-type-mono-paragraph-small-size);
+  font-weight: var(--u-type-mono-paragraph-small-weight);
+  line-height: var(--u-type-mono-paragraph-small-leading);
+  letter-spacing: var(--u-type-mono-paragraph-small-tracking);
+}
+.u-mono-paragraph-x-small {
+  font-family: var(--u-type-mono-paragraph-x-small-family);
+  font-size: var(--u-type-mono-paragraph-x-small-size);
+  font-weight: var(--u-type-mono-paragraph-x-small-weight);
+  line-height: var(--u-type-mono-paragraph-x-small-leading);
+  letter-spacing: var(--u-type-mono-paragraph-x-small-tracking);
+}
+.u-paragraph-large {
+  font-family: var(--u-type-paragraph-large-family);
+  font-size: var(--u-type-paragraph-large-size);
+  font-weight: var(--u-type-paragraph-large-weight);
+  line-height: var(--u-type-paragraph-large-leading);
+  letter-spacing: var(--u-type-paragraph-large-tracking);
+}
+.u-paragraph-medium {
+  font-family: var(--u-type-paragraph-medium-family);
+  font-size: var(--u-type-paragraph-medium-size);
+  font-weight: var(--u-type-paragraph-medium-weight);
+  line-height: var(--u-type-paragraph-medium-leading);
+  letter-spacing: var(--u-type-paragraph-medium-tracking);
+}
+.u-paragraph-small {
+  font-family: var(--u-type-paragraph-small-family);
+  font-size: var(--u-type-paragraph-small-size);
+  font-weight: var(--u-type-paragraph-small-weight);
+  line-height: var(--u-type-paragraph-small-leading);
+  letter-spacing: var(--u-type-paragraph-small-tracking);
+}
+.u-paragraph-x-small {
+  font-family: var(--u-type-paragraph-x-small-family);
+  font-size: var(--u-type-paragraph-x-small-size);
+  font-weight: var(--u-type-paragraph-x-small-weight);
+  line-height: var(--u-type-paragraph-x-small-leading);
+  letter-spacing: var(--u-type-paragraph-x-small-tracking);
+}
