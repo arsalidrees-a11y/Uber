@@ -65,7 +65,7 @@ of setup commands. You can ignore that page; use the steps below.
 
 ## Step 3, connect your local repo to it
 
-    git remote add origin git@github.com:arsalidrees-a11y/uber.git
+    git remote add origin git@github.com:arsalidrees-a11y/Uber.git
 
 Replace the account name if you created it under an organization. Use the
 `git@github.com:` form, not `https://`. The SSH form uses the key you already
@@ -123,7 +123,7 @@ username. For an organization repo, add a team instead of individuals.
 
 They then clone with:
 
-    git clone git@github.com:arsalidrees-a11y/uber.git
+    git clone git@github.com:arsalidrees-a11y/Uber.git
 
 and run `npm install` followed by `npm run check`. Everything else, including
 the skills and the lint hook, comes with the repo.
