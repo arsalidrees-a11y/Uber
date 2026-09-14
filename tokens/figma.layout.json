@@ -1,0 +1,59 @@
+{
+  "_meta": {
+    "source": "Figma file ruYJo9EUuYsyJxacE52B4p — ❖ Base Gallery - Design System",
+    "collections": ["Spacing", "Layout"],
+    "gridStyles": 13,
+    "pulledOn": "2026-09-14",
+    "note": "Verbatim dump of the local Spacing and Layout variable collections and the layout grid styles. Refresh by re-reading the collections from Figma, never by hand."
+  },
+  "spacing": {
+    "Sub-spacer / 000": 0,
+    "Sub-spacer / 002": 2,
+    "Sub-spacer / 004": 4,
+    "Sub-spacer / 008": 8,
+    "Spacer / 012": 12,
+    "Spacer / 016": 16,
+    "Spacer / 020": 20,
+    "Spacer / 024": 24,
+    "Spacer / 028": 28,
+    "Spacer / 032": 32,
+    "Spacer / 036": 36,
+    "Spacer / 040": 40,
+    "Spacer / 048": 48,
+    "Spacer / 056": 56,
+    "Spacer / 064": 64,
+    "Spacer / 096": 96,
+    "Spacer / 128": 128
+  },
+  "layout": {
+    "modes": [
+      "Standard / Small",
+      "Standard / Medium",
+      "Standard / Large",
+      "Compact / Small",
+      "Compact / Medium",
+      "Compact / Large"
+    ],
+    "vars": {
+      "Columns":        [4, 8, 12, 4, 8, 12],
+      "Margin":         [16, 36, 64, 16, 24, 24],
+      "Gutter":         [16, 36, 36, 16, 16, 16],
+      "Breakpoint min": [320, 600, 1136, 320, 600, 1136]
+    }
+  },
+  "gridStyles": [
+    { "name": "Layout grid / Standard / Small / Margins on",   "columns": 4,  "gutter": 16, "margin": 16, "baseline": 4 },
+    { "name": "Layout grid / Standard / Small / Margins off",  "columns": 4,  "gutter": 16, "margin": 0,  "baseline": 4 },
+    { "name": "Layout grid / Standard / Medium / Margins on",  "columns": 8,  "gutter": 36, "margin": 36, "baseline": 4 },
+    { "name": "Layout grid / Standard / Medium / Margins off", "columns": 8,  "gutter": 36, "margin": 0,  "baseline": 4 },
+    { "name": "Layout grid / Standard / Large / Margins on",   "columns": 12, "gutter": 36, "margin": 64, "baseline": 4 },
+    { "name": "Layout grid / Standard / Large / Margins off",  "columns": 12, "gutter": 36, "margin": 0,  "baseline": 4 },
+    { "name": "Layout grid / Compact / Small / Margins on",    "columns": 4,  "gutter": 16, "margin": 16, "baseline": 4 },
+    { "name": "Layout grid / Compact / Small / Margins off",   "columns": 4,  "gutter": 16, "margin": 0,  "baseline": 4 },
+    { "name": "Layout grid / Compact / Medium / Margins on",   "columns": 8,  "gutter": 16, "margin": 24, "baseline": 4 },
+    { "name": "Layout grid / Compact / Medium / Margins off",  "columns": 8,  "gutter": 16, "margin": 0,  "baseline": 4 },
+    { "name": "Layout grid / Compact / Large / Margins on",    "columns": 12, "gutter": 16, "margin": 24, "baseline": 4 },
+    { "name": "Layout grid / Compact / Large / Margins off",   "columns": 12, "gutter": 16, "margin": 0,  "baseline": 4 },
+    { "name": "Layout grid / Baseline 4pt",                    "columns": null, "gutter": null, "margin": null, "baseline": 4 }
+  ]
+}

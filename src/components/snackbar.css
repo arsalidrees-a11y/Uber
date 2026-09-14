@@ -8,7 +8,8 @@
   border-radius: var(--u-radius-sm);
   background: var(--u-background-inverse-primary);
   color: var(--u-content-inverse-primary);
-  box-shadow: var(--u-shadow-deep-below);
+  /* Docked above the safe area: same reason as the sheet, the shadow goes up. */
+  box-shadow: var(--u-shadow-deep-above);
   font-family: var(--u-type-paragraph-small-family);
   font-size: var(--u-type-paragraph-small-size);
   animation: u-snack-in var(--u-duration-base) var(--u-ease-decelerate);

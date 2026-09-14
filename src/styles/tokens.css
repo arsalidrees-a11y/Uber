@@ -177,9 +177,12 @@
   --u-yellow-900                   : #392300;
 
   /* --- elevation ---------------------------------------------------- */
-  --u-shadow-shallow-above: 0px -4px 16px 0px rgb(0 0 0 / 0.1216);
-  --u-shadow-shallow-below: 0px 4px 16px 0px rgb(0 0 0 / 0.1216);
-  --u-shadow-deep-below: 0px 16px 48px 0px rgb(0 0 0 / 0.2196);
+  --u-shadow-shallow-above: 0px -4px 16px 0px rgb(0 0 0 / 0.12);
+  --u-shadow-shallow-below: 0px 4px 16px 0px rgb(0 0 0 / 0.12);
+  --u-shadow-medium-above: 0px -8px 36px 0px rgb(0 0 0 / 0.17);
+  --u-shadow-medium-below: 0px 8px 36px 0px rgb(0 0 0 / 0.17);
+  --u-shadow-deep-above: 0px -16px 48px 0px rgb(0 0 0 / 0.22);
+  --u-shadow-deep-below: 0px 16px 48px 0px rgb(0 0 0 / 0.22);
 
   /* --- type --------------------------------------------------------- */
   --u-type-display-large-family: "Uber Move", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
@@ -366,7 +369,9 @@
   /* --- numeric variables straight from Figma ------------------------ */
   /* none in this pull */
 
-  /* --- spacing (Base 4pt grid) -------------------------------------- */
+  /* --- spacing (Figma "Spacing" collection, 4pt baseline) ------------
+     13 Spacer values are Uber's own; 0/2/4/8 are sub-spacer values that
+     exist only because CSS needs hairlines and inline offsets. */
   --u-space-0: 0rem;
   --u-space-2: 0.125rem;
   --u-space-4: 0.25rem;
@@ -375,11 +380,15 @@
   --u-space-16: 1rem;
   --u-space-20: 1.25rem;
   --u-space-24: 1.5rem;
+  --u-space-28: 1.75rem;
   --u-space-32: 2rem;
+  --u-space-36: 2.25rem;
   --u-space-40: 2.5rem;
   --u-space-48: 3rem;
+  --u-space-56: 3.5rem;
   --u-space-64: 4rem;
-  --u-space-80: 5rem;
+  --u-space-96: 6rem;
+  --u-space-128: 8rem;
 
   /* --- radius ------------------------------------------------------- */
   --u-radius-none: 0;
@@ -396,6 +405,54 @@
   --u-duration-fast: 120ms;
   --u-duration-base: 200ms;
   --u-duration-slow: 320ms;
+
+  /* --- layout ------------------------------------------------------- */
+  --u-bp-small: 320px;
+  --u-bp-medium: 600px;
+  --u-bp-large: 1136px;
+
+  /* Standard density at Small. The shipping target is a 390px webview, so
+     the phone grid is the default and needs no class to opt into. */
+  --u-cols: 4;
+  --u-margin: 1rem;
+  --u-gutter: 1rem;
+}
+
+/* Breakpoints widen the grid. Mobile-first: each query only moves up. */
+@media (min-width: 600px) {
+  :root {
+    --u-cols: 8;
+    --u-margin: 2.25rem;
+    --u-gutter: 2.25rem;
+  }
+}
+@media (min-width: 1136px) {
+  :root {
+    --u-cols: 12;
+    --u-margin: 4rem;
+    --u-gutter: 2.25rem;
+  }
+}
+
+/* Compact density - Uber's second matrix, not a different scale. */
+.u-density-compact {
+  --u-cols: 4;
+  --u-margin: 1rem;
+  --u-gutter: 1rem;
+}
+@media (min-width: 600px) {
+  .u-density-compact {
+    --u-cols: 8;
+    --u-margin: 1.5rem;
+    --u-gutter: 1rem;
+  }
+}
+@media (min-width: 1136px) {
+  .u-density-compact {
+    --u-cols: 12;
+    --u-margin: 1.5rem;
+    --u-gutter: 1rem;
+  }
 }
 
 /* Typography utilities - one class per Figma text style. */

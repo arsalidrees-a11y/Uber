@@ -12,7 +12,10 @@
            max(var(--u-space-24), env(safe-area-inset-bottom));
   background: var(--u-background-primary);
   border-radius: var(--u-radius-xl) var(--u-radius-xl) 0 0;
-  box-shadow: var(--u-shadow-deep-below);
+  /* Docked to the bottom edge, so the shadow has to be cast UPWARD onto the
+     page behind it. -below threw it downward, off the bottom of the screen,
+     which left the sheet with no visible separation at all. */
+  box-shadow: var(--u-shadow-deep-above);
   animation: u-sheet-in var(--u-duration-slow) var(--u-ease-decelerate);
 }
 .u-sheet__grab {

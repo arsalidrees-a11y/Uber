@@ -18,22 +18,70 @@
 
 :root {
   --u-target: 44px;            /* WCAG touch minimum */
-  --u-gutter: var(--u-space-16);
   --u-modality: touch;
 }
 
 /* Real pointer, e.g. the content team in Studio on a laptop. */
 @media (hover: hover) and (pointer: fine) {
-  :root { --u-target: 36px; --u-gutter: var(--u-space-12); --u-modality: pointer; }
+  :root { --u-target: 36px; --u-modality: pointer; }
 }
 
 /* Explicit overrides win over detection. These mirror the Figma variants. */
-.u-mobile { --u-target: 44px; --u-gutter: var(--u-space-16); --u-modality: touch; }
-.u-web    { --u-target: 36px; --u-gutter: var(--u-space-12); --u-modality: pointer; }
+.u-mobile { --u-target: 44px; --u-modality: touch; }
+.u-web    { --u-target: 36px; --u-modality: pointer; }
 
-/* Layout / Compact and Layout / Normal from the Figma foundation section. */
-.u-layout-compact { --u-gutter: var(--u-space-12); }
-.u-layout-normal  { --u-gutter: var(--u-space-16); }
+/* --- the grid --------------------------------------------------------
+ * --u-cols, --u-margin and --u-gutter are NOT set here. They come from the
+ * Layout matrix in the generated tokens.css, which mirrors the six Figma
+ * "Layout" modes (Standard/Compact x Small/Medium/Large). Density is a class
+ * (.u-density-compact), breakpoint is a media query.
+ *
+ * Gutter used to be defined here as a modality value, 16 for touch and 12 for
+ * pointer. That was a guess standing in for a layout system, and it was wrong
+ * in both directions: Uber's gutter is 16 at Small for BOTH modalities and
+ * widens to 36 at Medium. Nothing consumed it, so nothing broke.
+ * -------------------------------------------------------------------- */
+
+.u-grid {
+  display: grid;
+  grid-template-columns: repeat(var(--u-cols), minmax(0, 1fr));
+  gap: var(--u-gutter);
+  padding-inline: var(--u-margin);
+}
+
+/* "Margins off" in Figma: the grid still applies, the page margin does not.
+   Edge-to-edge media and full-bleed cards want this. */
+.u-grid--flush { padding-inline: 0; }
+
+/* A child spans the full width unless it says otherwise, which is what a
+   single-column phone layout wants by default. */
+.u-grid > * { grid-column: 1 / -1; }
+
+/* Spans. 1-4 are safe at every breakpoint because Small has 4 columns.
+   Anything wider has to be asked for per breakpoint, or it would overflow
+   the phone. `span N` needs a literal integer, so these cannot be derived
+   from --u-cols. */
+.u-col-1 { grid-column: span 1; }
+.u-col-2 { grid-column: span 2; }
+.u-col-3 { grid-column: span 3; }
+.u-col-4 { grid-column: span 4; }
+
+@media (min-width: 600px) {
+  .u-col-md-1 { grid-column: span 1; }
+  .u-col-md-2 { grid-column: span 2; }
+  .u-col-md-3 { grid-column: span 3; }
+  .u-col-md-4 { grid-column: span 4; }
+  .u-col-md-6 { grid-column: span 6; }
+  .u-col-md-8 { grid-column: span 8; }
+}
+@media (min-width: 1136px) {
+  .u-col-lg-2  { grid-column: span 2; }
+  .u-col-lg-3  { grid-column: span 3; }
+  .u-col-lg-4  { grid-column: span 4; }
+  .u-col-lg-6  { grid-column: span 6; }
+  .u-col-lg-8  { grid-column: span 8; }
+  .u-col-lg-12 { grid-column: span 12; }
+}
 
 /* --- targets follow modality, never width --------------------------- */
 .u-li, .u-menu__item, .u-sidenav__item, .u-select__opt,

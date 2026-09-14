@@ -129,6 +129,41 @@ t('snackbar can be created', () => {
   const ok = !!s.querySelector('.u-snack__action'); s.remove(); return ok || 'no action button';
 });
 
+/* The sheet had CSS and behaviour but no specimen and no test, so nothing
+   ever rendered it. That is why it shipped casting its shadow downward, off
+   the bottom of the screen. */
+t('sheet opens from a trigger and shows its scrim', () => {
+  const sheet = D.getElementById('g-sheet');
+  const scrim = D.querySelector('.u-scrim[data-for="g-sheet"]');
+  if (!sheet) return 'no sheet specimen in the gallery';
+  D.querySelector('[data-u-sheet-open="g-sheet"]').click();
+  return (!sheet.hidden && !scrim.hidden) || 'sheet or scrim stayed hidden';
+});
+
+t('sheet closes on its close button', () => {
+  const sheet = D.getElementById('g-sheet');
+  D.querySelector('[data-u-sheet-open="g-sheet"]').click();
+  if (sheet.hidden) return 'sheet never opened, so closing proves nothing';
+  sheet.querySelector('[data-u-sheet-close]').click();
+  return sheet.hidden || 'sheet stayed open';
+});
+
+t('sheet closes on Escape', () => {
+  const sheet = D.getElementById('g-sheet');
+  D.querySelector('[data-u-sheet-open="g-sheet"]').click();
+  if (sheet.hidden) return 'sheet never opened, so closing proves nothing';
+  D.dispatchEvent(new window.KeyboardEvent('keydown', { key: 'Escape', bubbles: true }));
+  return sheet.hidden || 'Escape did not close the sheet';
+});
+
+t('sheet closes on a scrim tap', () => {
+  const sheet = D.getElementById('g-sheet');
+  const scrim = D.querySelector('.u-scrim[data-for="g-sheet"]');
+  D.querySelector('[data-u-sheet-open="g-sheet"]').click();
+  if (sheet.hidden) return 'sheet never opened, so closing proves nothing';
+  scrim.click();
+  return (sheet.hidden && scrim.hidden) || 'scrim tap did not close the sheet';
+});
 
 /* ---- regressions from the audit ------------------------------------- */
 

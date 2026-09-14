@@ -24,10 +24,12 @@ body {
   overscroll-behavior-y: none;
 }
 
-/* Respect the notch and home indicator. */
+/* Respect the notch and home indicator. The horizontal inset is the page
+   margin from the layout matrix, not a fixed 16 - identical on the phone,
+   correct when the same markup is opened wide in Studio. */
 .u-safe {
-  padding-left: max(var(--u-space-16), env(safe-area-inset-left));
-  padding-right: max(var(--u-space-16), env(safe-area-inset-right));
+  padding-left: max(var(--u-margin), env(safe-area-inset-left));
+  padding-right: max(var(--u-margin), env(safe-area-inset-right));
   padding-bottom: max(var(--u-space-16), env(safe-area-inset-bottom));
 }
 

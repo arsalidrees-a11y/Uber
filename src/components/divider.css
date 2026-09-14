@@ -1,6 +1,12 @@
-/* Divider (10 instances) + Section heading (12 instances). */
+/* Divider (10 instances) + Section heading (12 instances).
+ *
+ * Uber ships one Divider component with a Class variant: Cell 1px, Section
+ * 2px, Module 8px. All three are #E8E8E8, i.e. Border / Opaque. Module was
+ * on --u-background-secondary here (#F3F3F3), which read a step too light
+ * against Uber's; the Spacing Sheet is the reference. Section was missing. */
 .u-divider { height: 1px; border: none; margin: 0; background: var(--u-border-opaque); }
-.u-divider--module { height: 8px; background: var(--u-background-secondary); }
+.u-divider--section { height: 2px; }
+.u-divider--module { height: 8px; }
 .u-divider--inset { margin-left: var(--u-space-16); }
 
 .u-section-heading {

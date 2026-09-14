@@ -100,6 +100,8 @@ If a design needs a value with no token, add the variable in Figma and re-pull.
 ## Layout
 
     tokens/figma.raw.json      Figma Variables dump  (INPUT, hand-refreshed)
+    tokens/figma.layout.json   Spacing + Layout dump (INPUT, hand-refreshed)
+    tokens/figma.elevation.json Effect-style dump  (INPUT, hand-refreshed)
     scripts/build-tokens.mjs   the compiler
     scripts/coverage.mjs       Figma section -> component status
     src/styles/tokens.css      GENERATED - never hand-edit
@@ -110,6 +112,163 @@ If a design needs a value with no token, add the variable in Figma and re-pull.
     lessons/                   HTML XBlock templates
     index.html                 review gallery at 390x844
     figma.map.json             Figma node -> component, check before building
+
+## The colour system in Figma
+
+Five published variable collections in the design system file, plus a
+`◐ Colour Sheet` page documenting them:
+
+| Collection | Variables | Published |
+|---|---|---|
+| Primitives | 112 | hidden, backing values only |
+| Core | 8 | yes |
+| Semantic | 16 | yes |
+| Semantic Extensions | 25 | yes |
+| Program | 7 | yes |
+
+47 of the 56 published tokens alias a primitive. The nine that do not are the
+six transparent overlays in Core and three Program colours that sit outside
+Base's ramps. Those are correct, not gaps.
+
+To add a colour: pick a primitive from the Colour Sheet, create a variable in
+the right collection that **aliases** it, publish, then re-pull tokens here.
+
+**Text styles**: 36 across eight groups, matching this repo's type scale
+exactly. The 18 inherited styles from the borrowed library were removed on
+2026-09-14 after verifying zero uses across 8,995 text nodes, so every text
+style in the file is now ours.
+
+| Group | Steps | | Group | Steps |
+|---|---|---|---|---|
+| Display | 4 | | Mono Display | 4 |
+| Heading | 6 | | Mono Heading | 6 |
+| Label | 4 | | Mono Label | 4 |
+| Paragraph | 4 | | Mono Paragraph | 4 |
+
+All 36 run on the real faces as of 2026-09-14: Uber Move Bold (10), Uber Move
+Text Medium (4) and Regular (4), Uber Move Mono Medium (14) and Regular (4).
+
+The swap could not be done through the MCP, because `use_figma` executes in a
+context carrying only web fonts. It was done with a Figma canvas plugin, "Uber
+Text Style Fonts", which runs inside the editor where the fonts exist. That
+plugin stays in the account library and re-reads each style's own description,
+so it still works if styles are added later. See
+`figma/swap-text-style-fonts.md`.
+
+**Inherited from the borrowed library.** The 81 paint styles were removed on
+2026-09-14 after confirming a single use across 58,052 nodes, a vector bound to
+Primary / Black which detached to the identical value. Colour now lives only in
+variables.
+
+The 60 inherited grid styles were removed on 2026-09-14 the same way, after a
+scan of all four pages found zero uses across 59,229 nodes, and replaced with
+13 of our own. See the layout section below.
+
+The 6 effect styles were the last inherited asset. Unlike the paint and grid
+styles they were not junk - they were the complete elevation ramp under a
+second set of names. They were renamed rather than replaced on 2026-09-14. See
+the elevation section below.
+
+**Nothing in the file is inherited any more.** Colour, type, spacing, layout
+and elevation are all ours.
+
+All five sheets are built from the system they document: their own headings and
+labels use the real text styles, and every text fill is bound to a semantic
+colour variable. Metrics and hex values sit on the Mono ramp.
+
+Five documentation pages live in the design file: `◐ Colour Sheet`,
+`◐ Text Sheet`, `◐ Spacing Sheet`, `◐ Layout Sheet` and `◐ Elevation Sheet`.
+Each carries the workflow for growing its part of the system.
+
+## Spacing and layout
+
+Two more collections, and the matrix that drives every gap and page margin.
+
+**Spacing** — 17 FLOAT variables in one collection. Thirteen are Uber's Spacer
+component value for value (12, 16, 20, 24, 28, 32, 36, 40, 48, 56, 64, 96,
+128). Four below 12 (0, 2, 4, 8) are ours: Uber never shipped a Spacer that
+small, but CSS needs hairlines and inline offsets. Use a Spacer value to space
+one block from another; reach for a sub-spacer only inside a component.
+
+**Layout** — four variables across six modes, `{Standard, Compact} x {Small,
+Medium, Large}`. This is Uber's own matrix:
+
+| Density | Breakpoint | Columns | Margin | Gutter |
+|---|---|---|---|---|
+| Standard | Small (320–599) | 4 | 16 | 16 |
+| Standard | Medium (600–1135) | 8 | 36 | 36 |
+| Standard | Large (1136+) | 12 | 64 | 36 |
+| Compact | Small | 4 | 16 | 16 |
+| Compact | Medium | 8 | 24 | 16 |
+| Compact | Large | 12 | 24 | 16 |
+
+**13 grid styles** carry the same matrix onto frames: `Layout grid / <density> /
+<breakpoint> / Margins on|off`, plus `Layout grid / Baseline 4pt`. Each column
+grid bundles the 4pt baseline rows, so vertical rhythm is never a separate
+decision. The previews on the Layout Sheet have their padding and item spacing
+bound to the Layout variables with the matching mode set, so they are the
+tokens rather than a picture of them.
+
+In CSS the two axes split, because media queries only have one: **density is a
+class**, `.u-density-compact`; **breakpoint is a query**. Both resolve
+`--u-cols`, `--u-margin` and `--u-gutter`, which `.u-grid` consumes.
+
+    .u-grid            display:grid over --u-cols, gutter gap, margin inline
+    .u-grid--flush     "Margins off" - grid without the page margin
+    .u-col-1 … -4      safe at every breakpoint (Small has 4 columns)
+    .u-col-md-*        from 600px    .u-col-lg-*   from 1136px
+
+Small is the default and needs no class, because the pilot ships into a 390px
+webview. Spans wider than 4 must be asked for per breakpoint: `span N` needs a
+literal integer, so it cannot be derived from `--u-cols`, and an unguarded
+`.u-col-8` would overflow the phone.
+
+Uber's Divider component maps to `.u-divider`, `--section` and `--module` at
+1px, 2px and 8px. All three are `--u-border-opaque` (#E8E8E8); module was on
+`--u-background-secondary` until 2026-09-14, which read a step too light.
+
+**To change the matrix**: edit the variables in Figma, re-dump to
+`tokens/figma.layout.json`, then `npm run tokens`. `npm run validate` compares
+the built CSS against that dump cell by cell and fails on any disagreement, so
+the sheets cannot quietly become decoration.
+
+## Elevation
+
+Six drop shadows: three depths x two directions.
+
+| Style | Token | Value | Used by |
+|---|---|---|---|
+| Shallow / Above | `--u-shadow-shallow-above` | 0 -4 16 · 12% | button dock |
+| Shallow / Below | `--u-shadow-shallow-below` | 0 4 16 · 12% | cards, menus, tooltips, popovers |
+| Medium / Above | `--u-shadow-medium-above` | 0 -8 36 · 17% | nothing yet |
+| Medium / Below | `--u-shadow-medium-below` | 0 8 36 · 17% | nothing yet |
+| Deep / Above | `--u-shadow-deep-above` | 0 -16 48 · 22% | bottom sheet, snackbar |
+| Deep / Below | `--u-shadow-deep-below` | 0 16 48 · 22% | dialog, dragged list item |
+
+These arrived as `Above|Below / Low|Medium|High` and were renamed to
+`Shallow|Medium|Deep / Above|Below` - the vocabulary Uber's own components and
+this repo's tokens already used. Same six values; one name per idea.
+
+**Direction is not a taste question.** A surface docked to the viewport's
+bottom edge must cast its shadow UPWARD, or the shadow lands off-screen and the
+surface reads as flat. `npm run validate` fails on a `position: fixed|sticky`
+rule that pins `bottom:` and uses a `-below` shadow. `bottom: calc(100% + …)`
+means "above my anchor", not "docked", and is correctly excluded - that is why
+the tooltip keeps a below shadow.
+
+**Press states cross media.** Uber builds them as effect styles: an inner
+shadow with a ~1000px offset, a Figma trick for flooding a shape with a flat
+tint. CSS does that with a background colour, so they map to
+`--u-overlay-black4/8` and `--u-overlay-white18` and have no `box-shadow` at
+all. The mapping is recorded in `tokens/figma.elevation.json` so it does not
+have to be rediscovered.
+
+Elevation is effect *styles* in Figma, not variables, so it never arrives with
+the colour and type pull. It is dumped to `tokens/figma.elevation.json` and
+that dump is the only source of `--u-shadow-*`; the compiler now refuses an
+`Effect()` entry in `figma.raw.json` rather than emitting a second, competing
+definition. That old path carried alpha as 8-bit hex, which quantised 12% to
+0.1216; the dump keeps the design's own 0.12.
 
 ## Refreshing tokens from Figma
 
@@ -198,6 +357,27 @@ These came from an audit that found real defects. Each is now enforced by
   reorder both answer to the keyboard.
 - **Guard `scrollIntoView`.** It is absent in some engines and its options
   argument is unsupported on older WebViews.
+- **A component with no specimen is invisible, and invisible things rot.** The
+  bottom sheet had CSS and behaviour but no specimen in `index.html` and no
+  test, so nothing ever rendered it - which is exactly why it shipped casting
+  its shadow off the bottom of the screen. It now has both.
+- **A test that asserts an end state must first prove the start state.** Three
+  of the four new sheet tests asserted "the sheet is hidden" after closing it.
+  With opening broken they all still passed, because the sheet had never
+  opened. Each now fails with "sheet never opened, so closing proves nothing".
+- **A gate that has never been run against bad input is not a gate.** Three
+  validator gates shipped broken, one of which could never fire. The layout
+  drift gate was written the same way and reported every `--u-gutter` as unset
+  because it required a trailing semicolon that the minifier strips from the
+  last declaration in a block. Feed each new gate a deliberately wrong input
+  and watch it fail before trusting it green.
+- **A broken toolchain is not a lint failure.** The PostToolUse lint hook ran
+  `npm`, which is not on a hook's PATH under nvm, and reported exit 127 as
+  broken code. It also walked `..` logically while its own `-f`/`-d` tests
+  walked the filesystem physically, so through the `.claude` symlink at the
+  parent it pointed `cd` one directory above the repo. It now resolves node
+  itself, uses `cd -P`, tests for the file it is about to run, and exits 0 with
+  a message when there is no node at all.
 - **`env(safe-area-inset-*)` is permanently inert inside a unit.** This is
   settled, not open. The LMS emits its own `<meta name="viewport">` with no
   `viewport-fit=cover`, and safe-area insets do not apply to a nested browsing
@@ -233,4 +413,4 @@ These came from an audit that found real defects. Each is now enforced by
   gradebook. Only ungraded retention checks are built in HTML.
 - **User-supplied strings use `textContent`, never `innerHTML`.** Lesson
   markup is author-controlled, but API values are not.
-- **CSS budget is 15 kB gzipped.** Currently 12.3 kB.
+- **CSS budget is 15 kB gzipped.** Currently 12.4 kB.

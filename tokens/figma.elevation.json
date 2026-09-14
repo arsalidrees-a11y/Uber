@@ -1,0 +1,25 @@
+{
+  "_meta": {
+    "source": "Figma file ruYJo9EUuYsyJxacE52B4p — ❖ Base Gallery - Design System, local effect styles",
+    "pulledOn": "2026-09-14",
+    "note": "Elevation lives in Figma as effect STYLES, not variables, so it does not arrive in figma.raw.json with the colour and type pull. Dumped separately, same as figma.layout.json. Figma stores alpha as float32, so the API reports 0.11999999731779099 for 12%; the design intent is two decimal places and that is what is recorded here.",
+    "namingNote": "Renamed on 2026-09-14 from the inherited Above|Below / Low|Medium|High to the Shallow|Medium|Deep vocabulary the Uber components and this repo's tokens already used. Same six values, one name for each idea."
+  },
+  "styles": [
+    { "name": "Shallow / Above", "token": "shadow-shallow-above", "x": 0, "y": -4,  "blur": 16, "spread": 0, "alpha": 0.12, "used": true },
+    { "name": "Shallow / Below", "token": "shadow-shallow-below", "x": 0, "y": 4,   "blur": 16, "spread": 0, "alpha": 0.12, "used": true },
+    { "name": "Medium / Above",  "token": "shadow-medium-above",  "x": 0, "y": -8,  "blur": 36, "spread": 0, "alpha": 0.17, "used": false },
+    { "name": "Medium / Below",  "token": "shadow-medium-below",  "x": 0, "y": 8,   "blur": 36, "spread": 0, "alpha": 0.17, "used": false },
+    { "name": "Deep / Above",    "token": "shadow-deep-above",    "x": 0, "y": -16, "blur": 48, "spread": 0, "alpha": 0.22, "used": true },
+    { "name": "Deep / Below",    "token": "shadow-deep-below",    "x": 0, "y": 16,  "blur": 48, "spread": 0, "alpha": 0.22, "used": true }
+  ],
+  "pressStates": {
+    "note": "Uber implements press tints as effect styles (inner shadows with a ~1000px offset, a Figma hack for flooding a shape with a flat tint). CSS does this with a background colour, so these map to colour tokens, not to box-shadow. They are listed here so the mapping is recorded rather than rediscovered.",
+    "map": {
+      "4% black overlay": "--u-overlay-black4",
+      "8% black overlay": "--u-overlay-black8",
+      "_Pressed State Overlay": "--u-overlay-black8",
+      "_Pressed State Overlay Inverse": "--u-overlay-white18"
+    }
+  }
+}
