@@ -140,5 +140,32 @@
     "licensing": "Satisfied. Arbisoft is org tier with a Full seat, which is what Code Connect requires.",
     "warning": "Framework-specific parsers are DEPRECATED as of @figma/code-connect 2.0.1. Template files are the only actively maintained route. Do not follow an older HTML-parser tutorial.",
     "blockedBy": "Nothing published in the Figma file to connect to. See _figmaLibraryState."
+  },
+  "_fontState": {
+    "checkedOn": "2026-09-14",
+    "installed": {
+      "Uber Move": [
+        "Bold",
+        "Light",
+        "Medium",
+        "Regular"
+      ],
+      "Uber Move Text": [
+        "Bold",
+        "Light",
+        "Medium",
+        "Regular"
+      ],
+      "Uber Move Mono": [
+        "Medium",
+        "Medium 190923",
+        "Regular"
+      ]
+    },
+    "missing": [],
+    "coverage": "36 of 36 generated text styles",
+    "impact": "Figma pushes and local rendering are now on-brand at every level, headings included.",
+    "note": "Uber Move Mono registers a duplicate dated face, 'Medium 190923'. Harmless for CSS, which matches on family and weight, but it may appear twice in Figma's font picker.",
+    "separateQuestion": "Serving the font to drivers in the webview remains unsettled. Installing locally for design and embedding on the web are different licence grants."
   }
 }

@@ -217,6 +217,18 @@ These came from an audit that found real defects. Each is now enforced by
   re-introduce animation that ignores it.
 - **Uber Move is proprietary.** Every generated family ends in a system
   fallback stack. Never ship a font file you were not licensed to ship.
+  Installing a font locally for design work and serving it to drivers are two
+  different permissions; only the first is settled.
+
+  All three families are installed on the design machine as of 2026-09-14,
+  covering 36 of 36 generated text styles. Figma and the local browser both
+  render real Uber type now, headings included.
+
+  This does NOT settle shipping. Drivers' phones will not have the font, so the
+  fallback stacks stay exactly as they are, and serving the files from the
+  webview needs a licence covering web embedding. That is a different grant
+  from the one that allowed the font to be installed here, and it is not yet
+  settled with Uber.
 - **Graded questions use the native Problem XBlock**, so the grade reaches the
   gradebook. Only ungraded retention checks are built in HTML.
 - **User-supplied strings use `textContent`, never `innerHTML`.** Lesson
