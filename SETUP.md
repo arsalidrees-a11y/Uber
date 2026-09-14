@@ -54,7 +54,7 @@ If the answer is "personal for now", that is fine. Carry on.
 
 In the browser, go to https://github.com/new and set:
 
-- **Repository name**: `uber-learn`
+- **Repository name**: `uber`
 - **Visibility**: **Private**. Not public. This carries Uber brand tokens.
 - **Initialize with a README**: leave every one of these **unticked**. You
   already have files. Adding a README there creates a conflicting first commit
@@ -65,7 +65,7 @@ of setup commands. You can ignore that page; use the steps below.
 
 ## Step 3, connect your local repo to it
 
-    git remote add origin git@github.com:arsalidrees-a11y/uber-learn.git
+    git remote add origin git@github.com:arsalidrees-a11y/uber.git
 
 Replace the account name if you created it under an organization. Use the
 `git@github.com:` form, not `https://`. The SSH form uses the key you already
@@ -123,7 +123,7 @@ username. For an organization repo, add a team instead of individuals.
 
 They then clone with:
 
-    git clone git@github.com:arsalidrees-a11y/uber-learn.git
+    git clone git@github.com:arsalidrees-a11y/uber.git
 
 and run `npm install` followed by `npm run check`. Everything else, including
 the skills and the lint hook, comes with the repo.
